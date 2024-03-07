@@ -13,7 +13,7 @@ class StaticApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const BasicScreen(),
+      home: const HomeScreen(),
     );
   }
 }

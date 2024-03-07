@@ -1,5 +1,5 @@
 import 'dart:io';
-
+/*
 void main() {
   //DeckTest();
   CharacterDraftTest();
@@ -26,14 +26,14 @@ void CharacterDraftTest() {                         //Tests the performDraft fun
   print('Performing a Character Draft:');
   deck.performDraft(8);                             //performs draft for a number of players (max 5)
 
-  print(deck.toString() + ' Remain in the deck.\n');//displays what was not picked
+  print('$deck Remain in the deck.\n');//displays what was not picked
 }
-
+*/
 class Card {
   String name;
-  //String picture;
+  String picture;
   
-  Card(this.name);
+  Card(this.name, this.picture);
   
   toString() {
     return name;
@@ -43,7 +43,8 @@ class Card {
 class Deck {
   String deckName = '';
   List<Card> cards = [];
-  
+  String cardBack = '';
+
   //Lists the entire contents of the deck in order
   toString() {
     return cards.toString();
@@ -55,37 +56,44 @@ class Deck {
   }
   
   //Adds each card to the deck, later I will pass the image of the card as an arguement
-  void generateDeck(List<String> namelist) {
-    
-    for(var name in namelist) {
+  void generateDeck(List<String> names, List<String> images) {
+    for(int i = 0; i<names.length; i++) {
       
-        var card = new Card(name);
-        this.cards.add(card);
-      /*
-       * Add the "store image" functionality here
-      */
+        var card = Card(names[i], images[i]);  //stores the list of names, and the list of addresses to their image
+        cards.add(card);
+
       }
-    this.shuffle();
+    shuffle();
   }
   
-  //Displays the card at the top of the deck.
-  void drawCard() {
-  print('Your card is ' + cards[0].toString() + '.');
-    //Later, display the image here
+  //returns the address of the image of top card
+  String drawCard() {
+  //print('Your card is ${cards[0]}.');
+  return cards[0].picture;
   }
-  
+
   //removes a card from the deck at a particular index
   void removeCard(int x) {
-    this.cards.removeAt(x);
+    cards.removeAt(x);
   }   
 }
 
 class CharacterDraft extends Deck {
     
-  CharacterDraft() {                                                     //Constructor initializes the cards in the deck
-    this.deckName = 'Character Draft';
-    var names = ['Hacker', 'Janitor', 'Lab Rat', 'Sentry', 'Survivor', 'Xenobiologist'];
-    this.generateDeck(names);
+  CharacterDraft() {                  //Constructor initializes the cards in the deck
+    deckName = 'Character Draft';
+    cardBack = 'assets/draft/back_of_card.png';
+    var names = [
+      'Hacker', 'Janitor',
+      'Lab Rat', 'Sentry',
+      'Survivor', 'Xenobiologist'
+    ];
+    var images = [
+      'assets/draft/hacker.png', 'assets/draft/janitor.png',
+      'assets/draft/lab_rat.png', 'assets/draft/sentry.png',
+      'assets/draft/survivor.png', 'assets/draft/xenobiologist.png',
+    ];
+    generateDeck(names, images);
   }
   
 //Performs the Character Draft according to the game rules. Does not work in dartpad as IO doesn't work.
@@ -93,16 +101,16 @@ class CharacterDraft extends Deck {
     
     var input;      
     
-    for(int i = 0; i < players; i++) {                                                        //Repeat for for however many players there are (1-5)
-      print ('Pick (1)' + cards[0].toString() + ' or (2)' + cards[1].toString() + '.');       //The deck was shuffled when it was created; displays the first 2 options
-      input = stdin.readLineSync();                                                           //Takes a input from the user to let them choose. This will be done with widgets later.
-      print ('You picked ' + cards[int.parse(input) - 1].toString() + ' as your character.'); //Displays the role the user chose
-      this.removeCard(int.parse(input) - 1);                                                  //Removes the chosen card from the deck
-      if(this.cards.length == 1) {                                                            //Checks if 5 players have been assigned roles and if so, leaves the loop
+    for(int i = 0; i < players; i++) {                                                   //Repeat for for however many players there are (1-5)
+      print ('Pick (1)${cards[0]} or (2)${cards[1]}.');                                  //The deck was shuffled when it was created; displays the first 2 options
+      input = stdin.readLineSync();                                                      //Takes a input from the user to let them choose. This will be done with widgets later.
+      print ('You picked ${cards[int.parse(input) - 1]} as your character.');            //Displays the role the user chose
+      removeCard(int.parse(input) - 1);                                                  //Removes the chosen card from the deck
+      if(cards.length == 1) {                                                            //Checks if 5 players have been assigned roles and if so, leaves the loop
       print ('Maximum number of players reached!');
       break;                                           
-      }    
-      this.shuffle();                                                                         //Shuffles the deck again
+      }
+      shuffle();                                                                         //Shuffles the deck again
     }
   }
 }
@@ -110,16 +118,25 @@ class CharacterDraft extends Deck {
 class ComputerActions extends Deck {         
     
   ComputerActions() {                                                   //Constructor initializes the cards in the deck
-    this.deckName = 'Computer Actions';
-    var names = ['Computer Action A', 'Computer Action B', 'Computer Action C', 'Computer Action D', 'Computer Action E', 'Lock-Down'];
-    this.generateDeck(names);
+    deckName = 'Computer Actions';
+    cardBack = 'assets/computer actions/back_of_card.png';
+    var names = [
+      'Computer Action A', 'Computer Action B',
+      'Computer Action C', 'Computer Action D',
+      'Computer Action E', 'Lock-Down'];
+    var images = [
+      'assets/computer actions/computer_actions_a.png', 'assets/computer actions/computer_actions_b.png',
+      'assets/computer actions/computer_actions_c.png', 'assets/computer actions/computer_actions_d.png',
+      'assets/computer actions/computer_actions_e.png', 'assets/computer actions/lock-down.png',
+    ];
+    generateDeck(names, images);
   }
 }
 
-
 class NightStalkerAttack extends Deck {
   NightStalkerAttack() {                                                //Constructor initializes the cards in the deck
-    this.deckName = 'Night Stalker Attack';
+    deckName = 'Night Stalker Attack';
+    cardBack = 'assets/attack/back_of_card.png';
     var names = [
      'Blood Chase', 'Blood Chase', 'Blood Chase',                                                                       //3 cards
      'Blood Rage', 'Blood Rage',                                                                                        //2 cards
@@ -129,14 +146,23 @@ class NightStalkerAttack extends Deck {
      'Perched in the Dark', 'Perched in the Dark', 'Perched in the Dark', 'Perched in the Dark', 'Perched in the Dark', //5 cards
      'Piercing the Heart', 'Piercing the Heart',                                                                        //2 cards
       ];
-  this.generateDeck(names);
+    var images = [
+      'assets/attack/blood_chase.png', 'assets/attack/blood_chase.png', 'assets/attack/blood_chase.png',
+      'assets/attack/blood_rage.png', 'assets/attack/blood_chase.png',
+      'assets/attack/cut.png', 'assets/attack/cut.png', 'assets/attack/cut.png', 'assets/attack/cut.png', 'assets/attack/cut.png',
+      'assets/attack/evolve.png', 'assets/attack/evolve.png',
+      'assets/attack/infecting_the_host.png',
+      'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png',
+      'assets/attack/piercing_the_heart.png', 'assets/attack/piercing_the_heart.png',
+    ];
+    generateDeck(names, images);
   }
 }
 
-
 class Event extends Deck {
   Event() {                                                             //Constructor initializes the cards in the deck
-    this.deckName = 'Event';
+    deckName = 'Event';
+    cardBack = 'assets/event/back_of_card.png';
     var names = [
       'Blood Trace', 'Blood Trace',                           //2 cards
       'Blue Screen', 'Blue Screen',                           //2 cards
@@ -155,7 +181,7 @@ class Event extends Deck {
       'Life Network Failure',                                 //1 card
       'Lurking', 'Lurking',                                   //2 cards
       'Nest', 'Nest',                                         //2 cards
-      'Noise in the Corridors', 'Noise in the Corridors',     //2 cards
+      'Noise in Corridors', 'Noise in Corridors',             //2 cards
       'Panic', 'Panic',                                       //2 cards
       'Power Surge', 'Power Surge',                           //2 cards
       'Regeneration',                                         //1 card
@@ -165,7 +191,35 @@ class Event extends Deck {
       'Short Circuit', 'Short Circuit',                       //2 cards
       'That\'s Hot'                                           //1 card
       ];
-  this.generateDeck(names);
+    var images = [
+      'assets/event/blood_trace.png', 'assets/event/blood_trace.png',
+      'assets/event/blue_screen.png', 'assets/event/blue_screen.png',
+      'assets/event/bulkheads_open.png', 'assets/event/bulkheads_open.png',
+      'assets/event/consuming_fire.png', 'assets/event/consuming_fire.png',
+      'assets/event/coolant_leak.png', 'assets/event/coolant_leak.png',
+      'assets/event/damage.png', 'assets/event/damage.png',
+      'assets/event/damaging_fire.png',
+      'assets/event/eclosion.png',
+      'assets/event/egg_protection.png', 'assets/event/egg_protection.png',
+      'assets/event/fire_in_the_hole.png',
+      'assets/event/hatching.png', 'assets/event/hatching.png',
+      'assets/event/hunt.png', 'assets/event/hunt.png',
+      'assets/event/kickstopper.png',
+      'assets/event/leaving_the_shell.png', 'assets/event/leaving_the_shell.png',
+      'assets/event/life_network_failure.png',
+      'assets/event/lurking.png', 'assets/event/lurking.png',
+      'assets/event/nest.png', 'assets/event/nest.png',
+      'assets/event/noise_in_corridors.png', 'assets/event/noise_in_corridors.png',
+      'assets/event/panic.png', 'assets/event/panic.png',
+      'assets/event/power_surge.png', 'assets/event/power_surge.png',
+      'assets/event/regeneration.png',
+      'assets/event/sanitary_network_failure.png',
+      'assets/event/scent_of_blood.png',
+      'assets/event/scent_of_prey.png',
+      'assets/event/short_circuit.png', 'assets/event/short_circuit.png',
+      'assets/event/that\'s_hot.png'
+    ];
+    generateDeck(names, images);
   }
 }
 
