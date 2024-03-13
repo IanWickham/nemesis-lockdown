@@ -5,7 +5,7 @@ import 'event_deck_screen.dart';
 class HomeScreen extends StatelessWidget {
   //class for the home screen
   const HomeScreen({super.key});
-
+//test new commit
   @override
   Widget build(BuildContext context) =>
       Scaffold(
