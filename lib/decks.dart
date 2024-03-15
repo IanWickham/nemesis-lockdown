@@ -1,34 +1,3 @@
-import 'dart:io';
-/*
-void main() {
-  //DeckTest();
-  CharacterDraftTest();
-}
-
-void DeckTest() {                                   //A simple test to display the contents of the multiple types of decks
-  var CDdeck = new CharacterDraft();
-  var Edeck = new Event();
-  var NSAdeck = new NightStalkerAttack();
-  var CAdeck = new ComputerActions();
-  
-  print('This is the ' + CDdeck.deckName + ' deck.');
-  print(CDdeck.toString() + '\n');
-  print('This is the ' + Edeck.deckName + ' deck.');
-  print(Edeck.toString() + '\n');
-  print('This is the ' + NSAdeck.deckName + ' deck.');
-  print(NSAdeck.toString() + '\n');
-  print('This is the ' + CAdeck.deckName + ' deck.');
-  print(CAdeck.toString() + '\n');
-}
-
-void CharacterDraftTest() {                         //Tests the performDraft function in the CharacterDraft deck
-  var deck = new CharacterDraft();
-  print('Performing a Character Draft:');
-  deck.performDraft(8);                             //performs draft for a number of players (max 5)
-
-  print('$deck Remain in the deck.\n');//displays what was not picked
-}
-*/
 class Card {
   String name;
   String picture;
@@ -79,7 +48,6 @@ class Deck {
 }
 
 class CharacterDraft extends Deck {
-    
   CharacterDraft() {                  //Constructor initializes the cards in the deck
     deckName = 'Character Draft';
     cardBack = 'assets/draft/back_of_card.png';
@@ -94,24 +62,6 @@ class CharacterDraft extends Deck {
       'assets/draft/survivor.png', 'assets/draft/xenobiologist.png',
     ];
     generateDeck(names, images);
-  }
-  
-//Performs the Character Draft according to the game rules. Does not work in dartpad as IO doesn't work.
-  void performDraft(int players) {
-    
-    var input;      
-    
-    for(int i = 0; i < players; i++) {                                                   //Repeat for for however many players there are (1-5)
-      print ('Pick (1)${cards[0]} or (2)${cards[1]}.');                                  //The deck was shuffled when it was created; displays the first 2 options
-      input = stdin.readLineSync();                                                      //Takes a input from the user to let them choose. This will be done with widgets later.
-      print ('You picked ${cards[int.parse(input) - 1]} as your character.');            //Displays the role the user chose
-      removeCard(int.parse(input) - 1);                                                  //Removes the chosen card from the deck
-      if(cards.length == 1) {                                                            //Checks if 5 players have been assigned roles and if so, leaves the loop
-      print ('Maximum number of players reached!');
-      break;                                           
-      }
-      shuffle();                                                                         //Shuffles the deck again
-    }
   }
 }
 

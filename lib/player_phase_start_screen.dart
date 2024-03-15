@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'character_draft_screen.dart';
-import 'globals.dart';
 
-class PlayerNumberScreen extends StatefulWidget {
-  @override
-  State<PlayerNumberScreen> createState() => _PlayerNumberScreenState();
-}
 
-class _PlayerNumberScreenState extends State<PlayerNumberScreen> {
-  double _currentSliderValue = 1;
+class PlayerPhaseStartScreen extends StatelessWidget {
+  const PlayerPhaseStartScreen({super.key});
 
-  //const PlayerNumberScreen({super.key});
   @override
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
@@ -35,48 +28,47 @@ class _PlayerNumberScreenState extends State<PlayerNumberScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'How many Players are',
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 30),
-                  ),
-                  Text(
-                    'playing the game?',
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 30),
+                    'Player Phase',
+                    style: GoogleFonts.novaSquare(color: Colors.blue, fontSize: 50),
                   ),
                   const Padding(
-                    padding: EdgeInsets.all(50.0),
+                    padding: EdgeInsets.all(30.0),
                   ),
-                  Slider(
-                    value: _currentSliderValue,
-                    max: 5,
-                    min: 1,
-                    divisions: 4,
-                    //label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    }
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(40.0),
-                  ),
-                  Text(
-                    _currentSliderValue.round().toString(),
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 100),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(40.0),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '• Draw up to 5',
+                          style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 30),
+                        ),
+                        Text(
+                          '  cards in hand',
+                          style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 30),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(30.0),
+                        ),
+                        Text(
+                          '• Pass first player',
+                          style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 30),
+                        ),
+                        Text(
+                          '  token',
+                          style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 30),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                      ]
                   ),
 
+                  const Padding(
+                    padding: EdgeInsets.all(30.0),
+                  ),
 
                   ElevatedButton(
                       onPressed: () {
-                        playerCount = _currentSliderValue.round();            //define the player count
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CharacterDraftScreen()),
-                        );
+
                       },
                       style: ElevatedButton.styleFrom(
                           side: const BorderSide(width: 1, color: Colors.black),
