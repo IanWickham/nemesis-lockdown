@@ -13,9 +13,10 @@ class CharacterDraftScreen extends StatefulWidget {
 
 class _CharacterDraftScreenState extends State<CharacterDraftScreen> {
 int currentPlayer = 1;
-bool pressAttention1 = false;
-bool pressAttention2 = false;
-var characterDraftDeck = new CharacterDraft();
+bool topIsPressed = false;
+bool botIsPressed = false;
+bool error = false;
+var characterDraftDeck = CharacterDraft();
 
   @override
   Widget build(BuildContext context) {
@@ -23,28 +24,13 @@ var characterDraftDeck = new CharacterDraft();
       return Scaffold(
           body: Stack(
             children: <Widget>[
-
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage('assets/texture.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                  border: Border.all(
-                    width: 4,
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-
+              getBackground(),
               Center(
+                child: IgnorePointer(
+                  ignoring: error, //Ignore input when the error message is displayed
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-
-
                       Text(
                         'Player $currentPlayer',
                         style: GoogleFonts.novaSquare(
@@ -58,22 +44,22 @@ var characterDraftDeck = new CharacterDraft();
                       const Padding(
                         padding: EdgeInsets.all(10.0),
                       ),
-                      Container(//wrap in container for the border
+                      Container(//Wrap the Material widget for the character selection border
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: (Colors.green[300])!,
-                            width: pressAttention1 ? 5 : 0,
+                            width: topIsPressed ? 5 : 0,
                           )
                         ),
-                          //had to wrap the inkwell in a material because it was the only way I found to get it to display on the top of the stack
+                          //Wrap the inkwell in a material because it was the only way I found to get it to display on the top of the stack
                           child: Material(
                               color: Colors.transparent,
                               child: InkWell(
                                 splashColor: Colors.green[200],
                                 onTap: () {
                                   setState(() {
-                                    pressAttention1 = true;
-                                    pressAttention2 = false;
+                                    topIsPressed = true;
+                                    botIsPressed = false;
                                   });
                                 },
                                 child: Ink.image(
@@ -87,22 +73,22 @@ var characterDraftDeck = new CharacterDraft();
                       const Padding(
                         padding: EdgeInsets.all(10.0),
                       ),
-                      Container(//wrap in container for the border
+                      Container(//Wrap the Material widget for the character selection border
                         decoration: BoxDecoration(
                             border: Border.all(
                               color: (Colors.green[300])!,
-                              width: pressAttention2 ? 5 : 0,
+                              width: botIsPressed ? 5 : 0,
                             )
                         ),
-                        //had to wrap the inkwell in a material because it was the only way I found to get it to display on the top of the stack
+                        //Wrap the inkwell in a material because it was the only way I found to get it to display on the top of the stack
                         child: Material(
                             color: Colors.transparent,
                             child: InkWell(
                               splashColor: Colors.green[200],
                               onTap: () {
                                 setState(() {
-                                  pressAttention1 = false;
-                                  pressAttention2 = true;
+                                  topIsPressed = false;
+                                  botIsPressed = true;
                                 });
                               },
                               child: Ink.image(
@@ -113,37 +99,52 @@ var characterDraftDeck = new CharacterDraft();
                             )
                         ),
                       ),
-
                       const Padding(
                         padding: EdgeInsets.all(10.0),
                       ),
-
                       ElevatedButton(
                           onPressed: () {
-                            if (currentPlayer == playerCount) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const PlayerPhaseStartScreen()),
-                              );
-                            }
-                            else {
-                              if(pressAttention1 == true)
-                              {
-                                characterDraftDeck.removeCard(0);
-                              }
-                              else if(pressAttention2 == true)
-                              {
-                                characterDraftDeck.removeCard(1);
-                              }
-                              setState((){
-                                pressAttention1 = false;
-                                pressAttention2 = false;
-                                currentPlayer++;
-                                characterDraftDeck.shuffle();
-                              });
 
-                            }
+                            if(topIsPressed == false && botIsPressed == false)
+                              {
+                                setState((){
+                                  error = true;
+                                });
+                              }
+                              else if(topIsPressed == true)
+                              {
+                                if (currentPlayer == playerCount) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const PlayerPhaseStartScreen()),
+                                  );
+                                }
+                                setState((){
+                                  characterDraftDeck.removeCard(0);
+                                  topIsPressed = false;
+                                  botIsPressed = false;
+                                  currentPlayer++;
+                                  characterDraftDeck.shuffle();
+                                });
+                              }
+                              else if(botIsPressed == true)
+                              {
+                                if (currentPlayer == playerCount) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const PlayerPhaseStartScreen()),
+                                  );
+                                }
+                                setState((){
+                                  characterDraftDeck.removeCard(1);
+                                  topIsPressed = false;
+                                  botIsPressed = false;
+                                  currentPlayer++;
+                                  characterDraftDeck.shuffle();
+                                });
+                              }
                           },
                           style: ElevatedButton.styleFrom(
                               side: const BorderSide(
@@ -158,13 +159,63 @@ var characterDraftDeck = new CharacterDraft();
                                   fontSize: 30, color: Colors.black)),
                           child: Text('Next', style: GoogleFonts.novaSquare())
                       ),
-
                     ]
                 ),
+                )
+              ),
+              Center(
+                child: error ? getErrorMessage() : null,
               ),
             ],
           )
       );
 
+  }
+  Widget getErrorMessage() {
+    return Container(
+      height: 330,
+      width: 230,
+      decoration: BoxDecoration(
+        color: Colors.grey[800]!.withOpacity(0.7),
+        border: Border.all(
+          width: 2,
+          color: Colors.red,
+        ),
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Select an option',
+            style: GoogleFonts.novaSquare(
+                color: Colors.red[200], fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(40.0),
+          ),
+          ElevatedButton(
+              onPressed: () {
+                setState((){
+                  error = false;
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                  side: const BorderSide(
+                      width: 1, color: Colors.black),
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  fixedSize: const Size(150, 60),
+                  textStyle: const TextStyle(
+                      fontSize: 30, color: Colors.black)),
+              child: Text('Ok', style: GoogleFonts.novaSquare())
+          ),
+        ],
+      ),
+    );
   }
 }

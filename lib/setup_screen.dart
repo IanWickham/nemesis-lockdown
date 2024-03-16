@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'player_number_screen.dart';
+import 'globals.dart';
 
 class SetupScreen extends StatelessWidget {
   const SetupScreen({super.key});
@@ -9,20 +10,7 @@ class SetupScreen extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage('assets/texture.jpg'),
-                fit: BoxFit.cover,
-              ),
-              border: Border.all(
-                width: 4,
-                color: Colors.white,
-              ),
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
+          getBackground(),
           Center(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

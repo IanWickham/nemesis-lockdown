@@ -75,9 +75,9 @@ class ComputerActions extends Deck {
       'Computer Action C', 'Computer Action D',
       'Computer Action E', 'Lock-Down'];
     var images = [
-      'assets/computer actions/computer_actions_a.png', 'assets/computer actions/computer_actions_b.png',
-      'assets/computer actions/computer_actions_c.png', 'assets/computer actions/computer_actions_d.png',
-      'assets/computer actions/computer_actions_e.png', 'assets/computer actions/lock-down.png',
+      'assets/computer actions/computer_action_a.png', 'assets/computer actions/computer_action_b.png',
+      'assets/computer actions/computer_action_c.png', 'assets/computer actions/computer_action_d.png',
+      'assets/computer actions/computer_action_e.png', 'assets/computer actions/lock-down.png',
     ];
     generateDeck(names, images);
   }

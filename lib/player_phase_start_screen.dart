@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'globals.dart';
+import 'player_phase_main_screen.dart';
 
-
-class PlayerPhaseStartScreen extends StatelessWidget {
+class PlayerPhaseStartScreen extends StatefulWidget {
   const PlayerPhaseStartScreen({super.key});
 
+  @override
+  State<PlayerPhaseStartScreen> createState() => _PlayerPhaseStartScreenState();
+}
+
+class _PlayerPhaseStartScreenState extends State<PlayerPhaseStartScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage('assets/texture.jpg'),
-                fit: BoxFit.cover,
-              ),
-              border: Border.all(
-                width: 4,
-                color: Colors.white,
-              ),
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
+          getBackground(),
+          getTurnCounter(),
+
           Center(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -32,7 +27,7 @@ class PlayerPhaseStartScreen extends StatelessWidget {
                     style: GoogleFonts.novaSquare(color: Colors.blue, fontSize: 50),
                   ),
                   const Padding(
-                    padding: EdgeInsets.all(30.0),
+                    padding: EdgeInsets.all(50.0),
                   ),
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +63,11 @@ class PlayerPhaseStartScreen extends StatelessWidget {
 
                   ElevatedButton(
                       onPressed: () {
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PlayerPhaseMainScreen()),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                           side: const BorderSide(width: 1, color: Colors.black),
