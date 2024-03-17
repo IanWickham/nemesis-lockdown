@@ -81,6 +81,14 @@ class ComputerActions extends Deck {
     ];
     generateDeck(names, images);
   }
+  void cycleTopCard() {
+    Card temp = cards[0];
+    for(int i = 0; i < cards.length-1; i++)
+      {
+        cards[i] = cards[i+1];
+      }
+    cards[cards.length-1] = temp;
+  }
 }
 
 class NightStalkerAttack extends Deck {

@@ -12,6 +12,11 @@ class PlayerPhaseStartScreen extends StatefulWidget {
 
 class _PlayerPhaseStartScreenState extends State<PlayerPhaseStartScreen> {
   @override
+  void initState() {
+    super.initState();
+
+  }
+  @override
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
         children: <Widget>[
@@ -29,7 +34,7 @@ class _PlayerPhaseStartScreenState extends State<PlayerPhaseStartScreen> {
                   const Padding(
                     padding: EdgeInsets.all(50.0),
                   ),
-                  Column(
+                  Column( //A second column for the alignment of the text
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -51,16 +56,11 @@ class _PlayerPhaseStartScreenState extends State<PlayerPhaseStartScreen> {
                           '  token',
                           style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 30),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.all(20.0),
-                        ),
                       ]
                   ),
-
                   const Padding(
-                    padding: EdgeInsets.all(30.0),
+                    padding: EdgeInsets.all(50.0),
                   ),
-
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(

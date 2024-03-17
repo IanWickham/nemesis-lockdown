@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'decks.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-int playerCount = 0;
-int currentTurn = 7;
+int playerCount = 0; //initialize to 0, playerCount gets defined in PlayerNumberScreen
+int currentTurn = 9;
 var nightStalkerAttackDeck = NightStalkerAttack();
 var computerActionsDeck = ComputerActions();
 //var characterDraftDeck = CharacterDraft();
@@ -36,235 +36,29 @@ Widget getTurnCounter() {
         text: TextSpan(
             style: GoogleFonts.novaSquare(fontSize: 22),
             children: <TextSpan>[
+              for(int i = 15; i >= 1; i--)
+                ...[
+                  const TextSpan(
+                    text: ' ',
+                  ),
+                  TextSpan(
+                    text: '$i',
+                    style: TextStyle(
+                      color: (currentTurn == i) ? Colors.white : Colors.grey,
+                      background: Paint()
+                        ..color = (currentTurn == i)
+                            ? Colors.red[400]!
+                            : Colors.transparent
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 2.0
+                        ..strokeJoin = StrokeJoin.bevel
+                        ..blendMode = BlendMode.difference,
+                    ),
+                  ),
+                ],
               const TextSpan(
                 text: ' ',
               ),
-              TextSpan(
-                text: '15',
-                style: TextStyle(
-                  color: (currentTurn==15) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==15) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '14',
-                style: TextStyle(
-                  color: (currentTurn==14) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==14) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '13',
-                style: TextStyle(
-                  color: (currentTurn==13) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==13) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '12',
-                style: TextStyle(
-                  color: (currentTurn==12) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==12) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '11',
-                style: TextStyle(
-                  color: (currentTurn==11) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==11) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '10',
-                style: TextStyle(
-                  color: (currentTurn==10) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==10) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '9',
-                style: TextStyle(
-                  color: (currentTurn==9) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==9) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '8',
-                style: TextStyle(
-                  color: (currentTurn==8) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==8) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '7',
-                style: TextStyle(
-                  color: (currentTurn==7) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==7) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '6',
-                style: TextStyle(
-                  color: (currentTurn==6) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==6) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '5',
-                style: TextStyle(
-                  color: (currentTurn==5) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==5) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '4',
-                style: TextStyle(
-                  color: (currentTurn==4) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==4) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '3',
-                style: TextStyle(
-                  color: (currentTurn==3) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==3) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '2',
-                style: TextStyle(
-                  color: (currentTurn==2) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==2) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth =  2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-              TextSpan(
-                text: '1',
-                style: TextStyle(
-                  color: (currentTurn==1) ? Colors.white : Colors.grey,
-                  background: Paint()
-                    ..color = (currentTurn==1) ? Colors.red[400]! : Colors.transparent
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2.0
-                    ..strokeJoin = StrokeJoin.bevel
-                    ..blendMode = BlendMode.difference,
-                ),
-              ),
-              const TextSpan(
-                text: ' ',
-              ),
-
             ]
         )
     ),

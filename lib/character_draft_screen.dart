@@ -18,7 +18,8 @@ bool botIsPressed = false;
 bool error = false;
 var characterDraftDeck = CharacterDraft();
 
-  @override
+
+@override
   Widget build(BuildContext context) {
 
       return Scaffold(
@@ -47,15 +48,15 @@ var characterDraftDeck = CharacterDraft();
                       Container(//Wrap the Material widget for the character selection border
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: (Colors.green[300])!,
-                            width: topIsPressed ? 5 : 0,
+                            color: topIsPressed ? (Colors.green[300])! : Colors.transparent,
+                            width: 5,
                           )
                         ),
                           //Wrap the inkwell in a material because it was the only way I found to get it to display on the top of the stack
                           child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                splashColor: Colors.green[200],
+                                splashColor: Colors.lightGreen[200],
                                 onTap: () {
                                   setState(() {
                                     topIsPressed = true;
@@ -76,15 +77,15 @@ var characterDraftDeck = CharacterDraft();
                       Container(//Wrap the Material widget for the character selection border
                         decoration: BoxDecoration(
                             border: Border.all(
-                              color: (Colors.green[300])!,
-                              width: botIsPressed ? 5 : 0,
+                              color: botIsPressed ? (Colors.green[300])! : Colors.transparent,
+                              width: 5,
                             )
                         ),
                         //Wrap the inkwell in a material because it was the only way I found to get it to display on the top of the stack
                         child: Material(
                             color: Colors.transparent,
                             child: InkWell(
-                              splashColor: Colors.green[200],
+                              splashColor: Colors.lightGreen[200],
                               onTap: () {
                                 setState(() {
                                   topIsPressed = false;
@@ -104,23 +105,23 @@ var characterDraftDeck = CharacterDraft();
                       ),
                       ElevatedButton(
                           onPressed: () {
-
-                            if(topIsPressed == false && botIsPressed == false)
+                            if(!topIsPressed && !botIsPressed)
                               {
                                 setState((){
                                   error = true;
                                 });
                               }
-                              else if(topIsPressed == true)
-                              {
-                                if (currentPlayer == playerCount) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const PlayerPhaseStartScreen()),
-                                  );
-                                }
-                                setState((){
+                            else if(topIsPressed || botIsPressed) {
+                              if (currentPlayer == playerCount) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (
+                                          context) => const PlayerPhaseStartScreen()),
+                                );
+                              }
+                              else if (topIsPressed) {
+                                setState(() {
                                   characterDraftDeck.removeCard(0);
                                   topIsPressed = false;
                                   botIsPressed = false;
@@ -128,16 +129,8 @@ var characterDraftDeck = CharacterDraft();
                                   characterDraftDeck.shuffle();
                                 });
                               }
-                              else if(botIsPressed == true)
-                              {
-                                if (currentPlayer == playerCount) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const PlayerPhaseStartScreen()),
-                                  );
-                                }
-                                setState((){
+                              else if (botIsPressed) {
+                                setState(() {
                                   characterDraftDeck.removeCard(1);
                                   topIsPressed = false;
                                   botIsPressed = false;
@@ -145,6 +138,7 @@ var characterDraftDeck = CharacterDraft();
                                   characterDraftDeck.shuffle();
                                 });
                               }
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                               side: const BorderSide(
@@ -163,7 +157,7 @@ var characterDraftDeck = CharacterDraft();
                 ),
                 )
               ),
-              Center(
+              Center(//display error message
                 child: error ? getErrorMessage() : null,
               ),
             ],
