@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'event_phase_start_screen.dart';
 import 'globals.dart';
-import 'event_phase/event_phase_a.dart';
 
 class PlayerPhaseMainScreen extends StatefulWidget {
   const PlayerPhaseMainScreen({super.key});
@@ -123,13 +123,13 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                           padding: EdgeInsets.all(10.0),
                         ),
                         ElevatedButton(
+                        //Moving on to event phase
                             onPressed: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const EventPhaseA()),
+                                    builder: (context) => const EventPhaseStartScreen()),
                               );
-
                             },
                             style: ElevatedButton.styleFrom(
                                 side: const BorderSide(
