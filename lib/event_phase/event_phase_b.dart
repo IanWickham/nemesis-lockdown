@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../globals.dart';
+import 'event_phase_c.dart';
 
 
 
@@ -63,6 +64,11 @@ class _EventPhaseBState extends State<EventPhaseB> {
 
                   ElevatedButton(
                       onPressed: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                          builder: (context) => const EventPhaseC()),
+                          );
 
 
                       },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nemesis_lockdown_companion/event_phase/event_phase_a.dart';
 import 'event_phase_start_screen.dart';
 import 'globals.dart';
 
@@ -128,7 +129,10 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const EventPhaseStartScreen()),
+                                    builder: (context) => const EventPhaseA())
+                                //^^change this here if you want to see either of^^
+                                // Eve's or Tanner's implementation of the Event Phase
+                                //Target either EventPhaseStartScreen() or EventPhaseA()
                               );
                             },
                             style: ElevatedButton.styleFrom(
