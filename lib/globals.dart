@@ -4,7 +4,7 @@ import 'decks.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 int playerCount = 0; //initialize to 0, playerCount gets defined in PlayerNumberScreen
-int currentTurn = 9;
+int currentTurn = 1; //initialize to up to 15, starting at 1,gets defines in EventPhaseMainScreen
 var nightStalkerAttackDeck = NightStalkerAttack();
 var computerActionsDeck = ComputerActions();
 //var characterDraftDeck = CharacterDraft();
