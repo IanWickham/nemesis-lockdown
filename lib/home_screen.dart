@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'setup_screen.dart';
+import 'globals.dart';
 
 class HomeScreen extends StatelessWidget {
   //class for the home screen
@@ -38,17 +39,8 @@ class HomeScreen extends StatelessWidget {
                               builder: (context) => SetupScreen()),
                         );
                       },
-                      style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.black),
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                          fixedSize: const Size(200, 60),
-                          textStyle: const TextStyle(
-                              fontSize: 30, color: Colors.black)),
-                      child: Text('Start', style: GoogleFonts.novaSquare())
+                      style: getButtonStyle(200, 60, Colors.blue),
+                      child: const Text('Start')
                   ),
                 ]
               ),

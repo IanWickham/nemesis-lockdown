@@ -5,19 +5,9 @@ import 'event_phase_b.dart';
 
 
 
-  class EventPhaseA extends StatefulWidget {
+  class EventPhaseA extends StatelessWidget {
   const EventPhaseA({super.key});
 
-  @override
-  State<EventPhaseA> createState() => _EventPhaseAState();
-}
-
-class _EventPhaseAState extends State<EventPhaseA> {
-  @override
-  void initState() {
-    super.initState();
-
-  }
   @override
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
@@ -43,7 +33,7 @@ class _EventPhaseAState extends State<EventPhaseA> {
                   Container(
                     width: 200,
                     height: 200,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.yellow,
                     ),
@@ -84,17 +74,8 @@ class _EventPhaseAState extends State<EventPhaseA> {
                         );
 
                       },
-                      style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.black),
-                          backgroundColor: Colors.red[300],
-                          foregroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          fixedSize: const Size(300, 60),
-                          textStyle: const TextStyle(
-                              fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      style: getButtonStyle(300, 60, Colors.red[300]!),
+                      child: const Text('Next')
                   ),
                 ]
             ),

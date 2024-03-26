@@ -68,4 +68,18 @@ Widget getTurnCounter() {
     ),);
 }
 
+ButtonStyle getButtonStyle(double width, double height, Color color, [double? fontsize]) //optional parameter for fontsize to format text
+{
+
+return ElevatedButton.styleFrom(
+  side: const BorderSide(width: 1, color: Colors.black),
+  backgroundColor: color,
+  foregroundColor: Colors.black,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(10),
+  ),
+  fixedSize: Size(width, height),
+  textStyle: TextStyle(fontSize: fontsize ?? 30, color: Colors.black, fontFamily: 'NovaSquare'));
+}
+
 

@@ -27,7 +27,7 @@ class SetupScreen extends StatelessWidget {
                               text: 'EXCEPT ',
                               style: TextStyle(color: Colors.red[300]),
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: 'for:',
                             ),
                           ]
@@ -93,17 +93,8 @@ class SetupScreen extends StatelessWidget {
                               builder: (context) => PlayerNumberScreen()),
                         );
                       },
-                      style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.black),
-                          backgroundColor: Colors.red[300],
-                          foregroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          fixedSize: const Size(300, 60),
-                          textStyle: const TextStyle(
-                              fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      style: getButtonStyle(300, 60, Colors.red[300]!),
+                      child: const Text('Next')
                   ),
                 ]
             ),

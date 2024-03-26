@@ -5,19 +5,9 @@ import '../globals.dart';
 
 
 
-class EventPhaseD extends StatefulWidget {
+class EventPhaseD extends StatelessWidget {
   const EventPhaseD({super.key});
 
-  @override
-  State<EventPhaseD> createState() => _EventPhaseDState();
-}
-
-class _EventPhaseDState extends State<EventPhaseD> {
-  @override
-  void initState() {
-    super.initState();
-
-  }
   @override
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
@@ -29,6 +19,9 @@ class _EventPhaseDState extends State<EventPhaseD> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.all(20.0),
+                  ),
                   Text(
                     'Event Phase',
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
@@ -50,9 +43,9 @@ class _EventPhaseDState extends State<EventPhaseD> {
                   Container(
                     width: 350,
                     child: Text(
-                      'For every Intruder that is in the same room as a character you must draw an intruder attack',
+                      'Draw an Intruder Attack Card for each intruder in a room with a player',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.novaSquare(
+                      style: GoogleFonts.electrolize(
                         color: Colors.white,
                         fontSize: 30,
                       ),
@@ -68,16 +61,7 @@ class _EventPhaseDState extends State<EventPhaseD> {
 
 
                       },
-                      style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.black),
-                          backgroundColor: Colors.blue[300],
-                          foregroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          fixedSize: const Size(300, 60),
-                          textStyle: const TextStyle(
-                              fontSize: 28, color: Colors.black)),
+                      style: getButtonStyle(300, 60, Colors.blue[300]!, 28),
                       child: Text('Draw Intruder Card', style: GoogleFonts.novaSquare())
                   ),
 
@@ -91,17 +75,8 @@ class _EventPhaseDState extends State<EventPhaseD> {
 
 
                       },
-                      style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.black),
-                          backgroundColor: Colors.red[300],
-                          foregroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          fixedSize: const Size(300, 60),
-                          textStyle: const TextStyle(
-                              fontSize: 28, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      style: getButtonStyle(300, 60, Colors.red[300]!),
+                      child: const Text('Next')
                   ),
                 ]
             ),

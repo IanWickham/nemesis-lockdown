@@ -17,7 +17,6 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
   bool drawIntruderCard = false;
   bool spawnIntruder = false;
   bool queenOrCreeper = false;
-
   @override
   void initState() {
     super.initState();
@@ -82,19 +81,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                                 drawIntruderCard = true;
                               });
                             },
-                            style: ElevatedButton.styleFrom(
-                                side: const BorderSide(
-                                    width: 1, color: Colors.black),
-                                backgroundColor: Colors.blue[300],
-                                foregroundColor: Colors.black,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                fixedSize: const Size(300, 60),
-                                textStyle: const TextStyle(
-                                    fontSize: 28, color: Colors.black)),
-                            child: Text('Draw Intruder Card',
-                                style: GoogleFonts.novaSquare())
+                            style: getButtonStyle(300, 60, Colors.blue[300]!, 28),
+                            child: const Text('Draw Intruder Card')
                         ),
                         const Padding(
                           padding: EdgeInsets.all(10.0),
@@ -105,20 +93,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                                 spawnIntruder = true;
                               });
                             },
-                            style: ElevatedButton.styleFrom(
-                                side: const BorderSide(
-                                    width: 1, color: Colors.black),
-                                backgroundColor: Colors.blue[300],
-                                foregroundColor: Colors.black,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                fixedSize: const Size(300, 60),
-                                textStyle: const TextStyle(
-                                    fontSize: 28, color: Colors.black)),
-                            child: Text(
-                                'Spawn Intruder',
-                                style: GoogleFonts.novaSquare())
+                            style: getButtonStyle(300, 60, Colors.blue[300]!),
+                            child: const Text('Spawn Intruder')
                         ),
                         const Padding(
                           padding: EdgeInsets.all(10.0),
@@ -135,19 +111,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                                 //Target either EventPhaseStartScreen() or EventPhaseA()
                               );
                             },
-                            style: ElevatedButton.styleFrom(
-                                side: const BorderSide(
-                                    width: 1, color: Colors.black),
-                                backgroundColor: Colors.red[300],
-                                foregroundColor: Colors.black,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                fixedSize: const Size(300, 60),
-                                textStyle: const TextStyle(
-                                    fontSize: 28, color: Colors.black)),
-                            child: Text('End Player Phase',
-                                style: GoogleFonts.novaSquare())
+                            style: getButtonStyle(300, 60, Colors.red[300]!),
+                            child: const Text('End Player Phase')
                         ),
                       ]
                   ),
@@ -208,18 +173,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                       prompt = false;
                     });
                     },
-                  style: ElevatedButton.styleFrom(
-                      side: const BorderSide(
-                          width: 1, color: Colors.black),
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      fixedSize: const Size(100, 60),
-                      textStyle: const TextStyle(
-                          fontSize: 30, color: Colors.black)),
-                  child: Text('Yes', style: GoogleFonts.novaSquare())
+                  style: getButtonStyle(100, 60, Colors.blue[300]!),
+                  child: const Text('Yes')
               ),
               const Padding(
                 padding: EdgeInsets.all(10.0),
@@ -230,18 +185,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                       prompt = false;
                     });
                     },
-                  style: ElevatedButton.styleFrom(
-                      side: const BorderSide(
-                          width: 1, color: Colors.black),
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      fixedSize: const Size(100, 60),
-                      textStyle: const TextStyle(
-                          fontSize: 30, color: Colors.black)),
-                  child: Text('No', style: GoogleFonts.novaSquare())
+                  style: getButtonStyle(100, 60, Colors.blue[300]!),
+                  child: const Text('No')
               ),
             ],
           )
@@ -283,18 +228,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                   computerActionsDeck.cycleTopCard();
                 });
               },
-              style: ElevatedButton.styleFrom(
-                  side: const BorderSide(
-                      width: 1, color: Colors.black),
-                  backgroundColor: Colors.green[400],
-                  foregroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  fixedSize: const Size(200, 60),
-                  textStyle: const TextStyle(
-                      fontSize: 30, color: Colors.black)),
-              child: Text('Resolved', style: GoogleFonts.novaSquare())
+              style: getButtonStyle(200, 60, Colors.red[300]!),
+              child: const Text('Resolved')
           ),
         ],
       ),
@@ -335,19 +270,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                         queenOrCreeper = true;
                       });
                       },
-                    style: ElevatedButton.styleFrom(
-                        side: const BorderSide(
-                            width: 1, color: Colors.black),
-                        backgroundColor: Colors.blue[300],
-                        foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        fixedSize: const Size(300, 60),
-                        textStyle: const TextStyle(
-                            fontSize: 28, color: Colors.black)),
-                    child: Text('Draw +1',
-                        style: GoogleFonts.novaSquare())
+                    style: getButtonStyle(300, 60, queenOrCreeper ? Colors.grey[700]! : Colors.blue[300]!), //if the button was pressed, grey it out
+                    child: const Text('Draw +1')
                 ),
                 const Padding(
                   padding: EdgeInsets.all(10.0),
@@ -356,20 +280,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                     onPressed: () {
 
                     },
-                    style: ElevatedButton.styleFrom(
-                        side: const BorderSide(
-                            width: 1, color: Colors.black),
-                        backgroundColor: Colors.blue[300],
-                        foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        fixedSize: const Size(300, 60),
-                        textStyle: const TextStyle(
-                            fontSize: 28, color: Colors.black)),
-                    child: Text(
-                        'Intruder Retreats',
-                        style: GoogleFonts.novaSquare())
+                    style: getButtonStyle(300, 60, Colors.blue[300]!),
+                    child: const Text('Intruder Retreats')
                 ),
                 const Padding(
                   padding: EdgeInsets.all(10.0),
@@ -381,25 +293,14 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                         drawIntruderCard = false;
                       });
                     },
-                    style: ElevatedButton.styleFrom(
-                        side: const BorderSide(
-                            width: 1, color: Colors.black),
-                        backgroundColor: Colors.red[300],
-                        foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          ),
-                        fixedSize: const Size(300, 60),
-                        textStyle: const TextStyle(
-                            fontSize: 28, color: Colors.black)),
-                    child: Text('Finish',
-                        style: GoogleFonts.novaSquare())
+                    style: getButtonStyle(300, 60, Colors.red[300]!),
+                    child: const Text('Finish')
                 ),
               ]
           ),
         ),
 Align(
-  alignment: const Alignment(3, -0.5345),
+  alignment: const Alignment(3, -0.5),
   child: queenOrCreeper ? Image.asset(nightStalkerAttackDeck.cards[1].picture, width: 350) : null,
 ),
       ]
@@ -481,19 +382,8 @@ Align(
                         spawnIntruder = false;
                       });
                     },
-                    style: ElevatedButton.styleFrom(
-                        side: const BorderSide(
-                            width: 1, color: Colors.black),
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        fixedSize: const Size(300, 60),
-                        textStyle: const TextStyle(
-                            fontSize: 28, color: Colors.black)),
-                    child: Text('Surprise Attack',
-                        style: GoogleFonts.novaSquare())
+                    style: getButtonStyle(300, 60, Colors.blue[300]!),
+                    child: const Text('Surprise Attack')
                 ),
                 const Padding(
                   padding: EdgeInsets.all(10.0),
@@ -504,19 +394,8 @@ Align(
                         spawnIntruder = false;
                       });
                     },
-                    style: ElevatedButton.styleFrom(
-                        side: const BorderSide(
-                            width: 1, color: Colors.black),
-                        backgroundColor: Colors.red[300],
-                        foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        fixedSize: const Size(300, 60),
-                        textStyle: const TextStyle(
-                            fontSize: 28, color: Colors.black)),
-                    child: Text('Finish',
-                        style: GoogleFonts.novaSquare())
+                    style: getButtonStyle(300, 60, Colors.red[300]!),
+                    child: const Text('Finish')
                 ),
               ]
           ),

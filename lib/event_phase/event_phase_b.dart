@@ -5,19 +5,9 @@ import 'event_phase_c.dart';
 
 
 
-class EventPhaseB extends StatefulWidget {
+class EventPhaseB extends StatelessWidget {
   const EventPhaseB({super.key});
 
-  @override
-  State<EventPhaseB> createState() => _EventPhaseBState();
-}
-
-class _EventPhaseBState extends State<EventPhaseB> {
-  @override
-  void initState() {
-    super.initState();
-
-  }
   @override
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
@@ -69,20 +59,9 @@ class _EventPhaseBState extends State<EventPhaseB> {
                           MaterialPageRoute(
                           builder: (context) => const EventPhaseC()),
                           );
-
-
                       },
-                      style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.black),
-                          backgroundColor: Colors.red[300],
-                          foregroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          fixedSize: const Size(300, 60),
-                          textStyle: const TextStyle(
-                              fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      style: getButtonStyle(300, 60, Colors.red[300]!),
+                      child: const Text('Next')
                   ),
                 ]
             ),

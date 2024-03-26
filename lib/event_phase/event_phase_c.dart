@@ -5,19 +5,9 @@ import 'event_phase_d.dart';
 
 
 
-class EventPhaseC extends StatefulWidget {
+class EventPhaseC extends StatelessWidget {
   const EventPhaseC({super.key});
 
-  @override
-  State<EventPhaseC> createState() => _EventPhaseCState();
-}
-
-class _EventPhaseCState extends State<EventPhaseC> {
-  @override
-  void initState() {
-    super.initState();
-
-  }
   @override
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
@@ -29,6 +19,9 @@ class _EventPhaseCState extends State<EventPhaseC> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.all(20.0),
+                  ),
                   Text(
                     'Event Phase',
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
@@ -48,7 +41,7 @@ class _EventPhaseCState extends State<EventPhaseC> {
                   ),
 
 
-                  const SizedBox(height: 5.0),
+                  //const SizedBox(height: 5.0),
 
                   Container(
                     width: 350,
@@ -72,20 +65,9 @@ class _EventPhaseCState extends State<EventPhaseC> {
                           MaterialPageRoute(
                               builder: (context) => const EventPhaseD()),
                         );
-
-
                       },
-                      style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.black),
-                          backgroundColor: Colors.red[300],
-                          foregroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          fixedSize: const Size(300, 60),
-                          textStyle: const TextStyle(
-                              fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      style: getButtonStyle(300, 60, Colors.red[300]!),
+                      child: const Text('Next')
                   ),
                 ]
             ),
