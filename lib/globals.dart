@@ -9,6 +9,7 @@ var nightStalkerAttackDeck = NightStalkerAttack();
 var computerActionsDeck = ComputerActions();
 //var characterDraftDeck = CharacterDraft();
 var eventDeck = Event();
+var intruderGrabBag = TokenGrabBag();
 
 Widget getBackground() {
   return Container(
@@ -67,10 +68,7 @@ Widget getTurnCounter() {
       elevation: 0.0,
     ),);
 }
-
-ButtonStyle getButtonStyle(double width, double height, Color color, [double? fontsize]) //optional parameter for fontsize to format text
-{
-
+ButtonStyle getButtonStyle(double width, double height, Color color, [double? fontsize]) {//optional parameter for fontsize to format text
 return ElevatedButton.styleFrom(
   side: const BorderSide(width: 1, color: Colors.black),
   backgroundColor: color,

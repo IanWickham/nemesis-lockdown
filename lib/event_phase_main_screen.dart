@@ -142,10 +142,10 @@ class _EventPhaseMainScreenState extends State<EventPhaseMainScreen> {
             Center( //display Lock-Down prompt
               child: (computerActionsDeck.cards[0].name == 'Lock-Down') ? getLockdownPrompt() : null,
             ),
-            Center( //display Lock-Down prompt
+            Center(
               child: drawIntruderCard ? getDrawIntruderCardScreen() : null,
             ),
-            /*Center( //display Lock-Down prompt
+            /*Center(
               child: spawnIntruder ? getSpawnIntruderScreen() : null,
             ),*/
 

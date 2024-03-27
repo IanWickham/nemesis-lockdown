@@ -17,6 +17,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
   bool drawIntruderCard = false;
   bool spawnIntruder = false;
   bool queenOrCreeper = false;
+  bool intruderRetreats = false;
   @override
   void initState() {
     super.initState();
@@ -43,10 +44,10 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                           style: GoogleFonts.novaSquare(
                               color: Colors.blue, fontSize: 30),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.all(20.0),
-                        ),
-                        Container( //Wrap the Material widget for the character selection border
+                        Padding(
+                          padding: EdgeInsets.all(30.0),
+                          child: Container( //Wrap the Material widget for the selection border
+
                           decoration: BoxDecoration(
                               border: Border.all(
                                 color: prompt ? (Colors.green[300])! : Colors.transparent,
@@ -66,15 +67,14 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                                   image: AssetImage(computerActionsDeck.cards[0].picture),
                                   height: 350,
                                   fit: BoxFit.cover,
-                                  alignment: const Alignment(0, 0.5),
+                                  alignment: const Alignment(0, 0.7),
 
                                 ),
                               )
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.all(20.0),
                         ),
+
                         ElevatedButton(
                             onPressed: () {
                               setState(() {
@@ -124,11 +124,14 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
               Center( //display Lock-Down prompt
                 child: (computerActionsDeck.cards[0].name == 'Lock-Down') ? getLockdownPrompt() : null,
               ),
-              Center( //display Lock-Down prompt
+              Center( //display draw intruder card screen
                 child: drawIntruderCard ? getDrawIntruderCardScreen() : null,
               ),
-              Center( //display Lock-Down prompt
+              Center( //display spawn intruder screen
                 child: spawnIntruder ? getSpawnIntruderScreen() : null,
+              ),
+              Center( //display spawn intruder screen
+                child: intruderRetreats ? getIntruderRetreatsScreen() : null,
               ),
 
 
@@ -278,7 +281,9 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-
+                      setState(() {
+                        intruderRetreats = true;
+                      });
                     },
                     style: getButtonStyle(300, 60, Colors.blue[300]!),
                     child: const Text('Intruder Retreats')
@@ -306,6 +311,46 @@ Align(
       ]
     );
   }
+
+  Widget getIntruderRetreatsScreen() {
+    return Stack(
+        children: <Widget>[
+          Container(
+            alignment: Alignment.center,
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.8),
+            ),
+          ),
+          Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(20.0),
+                  ),
+                  Image.asset(eventDeck.cards[0].picture, width: 350),
+
+                  const Padding(
+                    padding: EdgeInsets.all(20.0),
+                  ),
+
+                  ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          intruderRetreats = false;
+                        });
+                      },
+                      style: getButtonStyle(300, 60, Colors.red[300]!),
+                      child: const Text('Finish')
+                  ),
+                ]
+            ),
+          ),
+        ]
+    );
+  }
   //Displays the Spawn Intruder Screen
   Widget getSpawnIntruderScreen() {
     return Stack(
@@ -325,43 +370,70 @@ Align(
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 200,
-                      height: 200,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: RadialGradient(
-                          colors: [
-                            Colors.lightGreenAccent,
-                            Colors.teal,
-                          ],
-                          center: Alignment(-0.3, -0.5),
-                        ),
-                        boxShadow: [
-                          BoxShadow(blurRadius: 20),
-                        ],
-                      ),
+                    SizedBox(
+                      width: 250,
+                      height: 250,
+                      child: Image.asset(intruderGrabBag.tokens[0].picture),
+                    ),
+
+                    intruderGrabBag.tokens[0].name == 'Blank' ? const SizedBox.shrink() :
+                    Column(
+                        children:[
+                          const Padding(
+                            padding: EdgeInsets.all(5.0),
+                          ),
+
+                          SizedBox(
+                            width: 100,
+                            child: Row(
+
+                              children: [
+                                Container(
+                                  width: 50,
+                                  height: 50,
+                                  color: Colors.blue[300],
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                ),
+                                Text(
+                                  intruderGrabBag.tokens[0].blue.toString(),
+                                  style: GoogleFonts.novaSquare(
+                                      color: Colors.blue[300], fontSize: 40, fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.all(15.0),
+                          ),
+                          SizedBox(
+                            width: 100,
+                            child: Row(
+
+                              children: [
+                                Container(
+                                  width: 50,
+                                  height: 50,
+                                  color: Colors.red[300],
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                ),
+                                Text(
+                                  intruderGrabBag.tokens[0].red.toString(),
+                                  style: GoogleFonts.novaSquare(
+                                      color: Colors.red[300], fontSize: 40, fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          )
+                        ]
+
                     ),
                     const Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: EdgeInsets.all(10.0),
                     ),
-                    Column(
-                      children:[
-                        Container(
-                          width: 50,
-                          height: 50,
-                          color: Colors.blue,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(15.0),
-                        ),
-                        Container(
-                          width: 50,
-                          height: 50,
-                          color: Colors.red,
-                        )
-                      ]
-                    )
                   ]
                 ),
                 const Padding(
@@ -374,6 +446,18 @@ Align(
                 ),
                 const Padding(
                   padding: EdgeInsets.all(50.0),
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        intruderGrabBag.shuffle();
+                      });
+                    },
+                    style: getButtonStyle(300, 60, Colors.blue[300]!),
+                    child: const Text('Shuffle test')
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                 ),
                 ElevatedButton(
                     onPressed: () {
@@ -403,5 +487,8 @@ Align(
       ],
     );
   }
+
+
+
 }
 

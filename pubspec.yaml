@@ -67,6 +67,7 @@ flutter:
     - assets/draft/
     - assets/event/
     - assets/misc assets/
+    - assets/intruder tokens/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

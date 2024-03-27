@@ -9,6 +9,13 @@ class Card {
   }
 }
 
+class Token extends Card {
+
+  int? blue;
+  int? red;
+  Token(super.name, super.picture, this.blue, this.red);
+}
+
 class Deck {
   String deckName = '';
   List<Card> cards = [];
@@ -45,6 +52,71 @@ class Deck {
   void removeCard(int x) {
     cards.removeAt(x);
   }   
+}
+
+class TokenGrabBag extends Deck {
+
+  List<Token> tokens = [];
+
+  TokenGrabBag() {
+    deckName = 'Intruder Token Grab Bag';
+
+    var names = [
+      'Blank',
+      'Larva', 'Larva', 'Larva', 'Larva', 'Larva', 'Larva', 'Larva',
+      'Creeper', 'Creeper', 'Creeper',
+      'Adult', 'Adult', 'Adult', 'Adult', 'Adult', 'Adult',
+      'Adult', 'Adult', 'Adult', 'Adult', 'Adult', 'Adult',
+      'Breeder', 'Breeder',
+      'Queen'
+    ];
+
+    var images = [
+      'assets/intruder tokens/blanktoken.png',
+      'assets/intruder tokens/larvatoken.png', 'assets/intruder tokens/larvatoken.png', 'assets/intruder tokens/larvatoken.png',
+      'assets/intruder tokens/larvatoken.png', 'assets/intruder tokens/larvatoken.png', 'assets/intruder tokens/larvatoken.png', 'assets/intruder tokens/larvatoken.png',
+      'assets/intruder tokens/creepertoken.png', 'assets/intruder tokens/creepertoken.png', 'assets/intruder tokens/creepertoken.png',
+      'assets/intruder tokens/adulttoken.png', 'assets/intruder tokens/adulttoken.png', 'assets/intruder tokens/adulttoken.png',
+      'assets/intruder tokens/adulttoken.png', 'assets/intruder tokens/adulttoken.png', 'assets/intruder tokens/adulttoken.png',
+      'assets/intruder tokens/adulttoken.png', 'assets/intruder tokens/adulttoken.png', 'assets/intruder tokens/adulttoken.png',
+      'assets/intruder tokens/adulttoken.png', 'assets/intruder tokens/adulttoken.png', 'assets/intruder tokens/adulttoken.png',
+      'assets/intruder tokens/breedertoken.png', 'assets/intruder tokens/breedertoken.png',
+      'assets/intruder tokens/queentoken.png'
+    ];
+
+    var blue = [
+      null,                       //blank blue value
+      1, 1, 1, 1, 0, 0, 0,        //larvae blue values
+      1, 1, 1,                    //creeper blue values
+      2, 2, 2, 3, 3, 3,           //adult blue values
+      1, 1, 1, 2, 2, 2,           //adult blue values
+      2, 3,                       //breeder blue values
+      4                           //queen blue value
+    ];
+
+    var red = [
+      null,                       //blank red value
+      2, 2, 2, 2, 1, 1, 1,        //larvae red values
+      2, 2, 2,                    //creeper red values
+      4, 4, 4, 4, 4, 4,           //adult red values
+      3, 3, 3, 3, 3, 3,           //adult red values
+      4, 4,                       //breeder red values
+      4                           //queen red value
+    ];
+    generateGrabBag(names, images, blue, red);
+  }
+  @override
+  void shuffle() {
+    tokens.shuffle();
+  }
+  void generateGrabBag(List<String> names, List<String> images, List<int?> blue, List<int?> red) {
+    for(int i = 0; i<names.length; i++) {
+
+      var token = Token(names[i], images[i], blue[i], red[i]);  //stores the list of names, images, and stats
+      tokens.add(token);
+    }
+    shuffle();
+  }
 }
 
 class CharacterDraft extends Deck {
