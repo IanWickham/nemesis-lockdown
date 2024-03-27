@@ -105,13 +105,13 @@ class NightStalkerAttack extends Deck {
      'Piercing the Heart', 'Piercing the Heart',                                                                        //2 cards
       ];
     var images = [
-      'assets/attack/blood_chase.png', 'assets/attack/blood_chase.png', 'assets/attack/blood_chase.png',
-      'assets/attack/blood_rage.png', 'assets/attack/blood_chase.png',
-      'assets/attack/cut.png', 'assets/attack/cut.png', 'assets/attack/cut.png', 'assets/attack/cut.png', 'assets/attack/cut.png',
-      'assets/attack/evolve.png', 'assets/attack/evolve.png',
+      'assets/attack/blood_chase.png', 'assets/attack/blood_chase2.png', 'assets/attack/blood_chase3.png',
+      'assets/attack/blood_rage.png', 'assets/attack/blood_rage2.png',
+      'assets/attack/cut.png', 'assets/attack/cut2.png', 'assets/attack/cut3.png', 'assets/attack/cut4.png', 'assets/attack/cut5.png',
+      'assets/attack/evolve.png', 'assets/attack/evolve2.png',
       'assets/attack/infecting_the_host.png',
-      'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png',
-      'assets/attack/piercing_the_heart.png', 'assets/attack/piercing_the_heart.png',
+      'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark2.png', 'assets/attack/perched_in_the_dark3.png', 'assets/attack/perched_in_the_dark4.png',
+      'assets/attack/piercing_the_heart.png', 'assets/attack/piercing_the_heart2.png',
     ];
     generateDeck(names, images);
   }
@@ -150,26 +150,26 @@ class Event extends Deck {
       'That\'s Hot'                                           //1 card
       ];
     var images = [
-      'assets/event/blood_trace.png', 'assets/event/blood_trace.png',
+      'assets/event/blood_trace.png', 'assets/event/blood_trace2.png',
       'assets/event/blue_screen.png', 'assets/event/blue_screen.png',
-      'assets/event/bulkheads_open.png', 'assets/event/bulkheads_open.png',
-      'assets/event/consuming_fire.png', 'assets/event/consuming_fire.png',
+      'assets/event/bulkheads_open.png', 'assets/event/bulkheads_open2.png',
+      'assets/event/consuming_fire.png', 'assets/event/consuming_fire2.png',
       'assets/event/coolant_leak.png', 'assets/event/coolant_leak.png',
-      'assets/event/damage.png', 'assets/event/damage.png',
+      'assets/event/damage.png', 'assets/event/damage2.png',
       'assets/event/damaging_fire.png',
       'assets/event/eclosion.png',
       'assets/event/egg_protection.png', 'assets/event/egg_protection.png',
       'assets/event/fire_in_the_hole.png',
-      'assets/event/hatching.png', 'assets/event/hatching.png',
-      'assets/event/hunt.png', 'assets/event/hunt.png',
+      'assets/event/hatching.png', 'assets/event/hatching2.png',
+      'assets/event/hunt.png', 'assets/event/hunt2.png',
       'assets/event/kickstopper.png',
-      'assets/event/leaving_the_shell.png', 'assets/event/leaving_the_shell.png',
+      'assets/event/leaving_the_shell.png', 'assets/event/leaving_the_shell2.png',
       'assets/event/life_network_failure.png',
       'assets/event/lurking.png', 'assets/event/lurking.png',
-      'assets/event/nest.png', 'assets/event/nest.png',
-      'assets/event/noise_in_corridors.png', 'assets/event/noise_in_corridors.png',
-      'assets/event/panic.png', 'assets/event/panic.png',
-      'assets/event/power_surge.png', 'assets/event/power_surge.png',
+      'assets/event/nest.png', 'assets/event/nest2.png',
+      'assets/event/noise_in_corridors.png', 'assets/event/noise_in_corridors2.png',
+      'assets/event/panic.png', 'assets/event/panic2.png',
+      'assets/event/power_surge.png', 'assets/event/power_surge2.png',
       'assets/event/regeneration.png',
       'assets/event/sanitary_network_failure.png',
       'assets/event/scent_of_blood.png',
@@ -180,6 +180,8 @@ class Event extends Deck {
     generateDeck(names, images);
   }
 }
+
+
 
 
 
