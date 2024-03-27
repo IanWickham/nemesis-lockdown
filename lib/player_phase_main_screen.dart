@@ -376,7 +376,7 @@ Align(
                       child: Image.asset(intruderGrabBag.tokens[0].picture),
                     ),
 
-                    intruderGrabBag.tokens[0].name == 'Blank' ? const SizedBox.shrink() :
+                    intruderGrabBag.tokens[0].name == 'Nothing' ? const SizedBox.shrink() : //if it is a blank token, do not display the stats
                     Column(
                         children:[
                           const Padding(
@@ -440,7 +440,7 @@ Align(
                   padding: EdgeInsets.all(30.0),
                 ),
                 Text(
-                  'Spawn Adult',
+                  'Spawn ' + intruderGrabBag.tokens[0].name,
                   style: GoogleFonts.novaSquare(
                       color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
                 ),

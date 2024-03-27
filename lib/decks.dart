@@ -62,7 +62,7 @@ class TokenGrabBag extends Deck {
     deckName = 'Intruder Token Grab Bag';
 
     var names = [
-      'Blank',
+      'Nothing',
       'Larva', 'Larva', 'Larva', 'Larva', 'Larva', 'Larva', 'Larva',
       'Creeper', 'Creeper', 'Creeper',
       'Adult', 'Adult', 'Adult', 'Adult', 'Adult', 'Adult',
