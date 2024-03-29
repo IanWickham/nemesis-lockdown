@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nemesis_lockdown_companion/event_phase/event_phase_f.dart';
 import '../globals.dart';
+import 'event_phase_e.dart';
 
 
 
@@ -70,9 +72,11 @@ class EventPhaseD extends StatelessWidget {
 
                   ElevatedButton(
                       onPressed: () {
-
-
-
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                            builder: (context) => const EventPhaseE()),
+                        );
 
                       },
                       style: getButtonStyle(300, 60, Colors.red[300]!),
