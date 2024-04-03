@@ -63,12 +63,15 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                                     prompt = true;
                                   });
                                 },
+
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10.0),
                                 child: Ink.image(
                                   image: AssetImage(computerActionsDeck.cards[0].picture),
                                   height: 350,
                                   fit: BoxFit.cover,
                                   alignment: const Alignment(0, 0.7),
-
+                                ),
                                 ),
                               )
                           ),
@@ -305,7 +308,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
           ),
         ),
 Align(
-  alignment: const Alignment(3, -0.5),
+  alignment: const Alignment(2, -0.5),
   child: queenOrCreeper ? Image.asset(nightStalkerAttackDeck.cards[1].picture, width: 350) : null,
 ),
       ]
@@ -391,7 +394,11 @@ Align(
                                 Container(
                                   width: 50,
                                   height: 50,
-                                  color: Colors.blue[300],
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue[300],
+                                    borderRadius: BorderRadius.circular(10)
+                                  ),
+                                  child: Image.asset('assets/misc assets/lightning.png'),
                                 ),
                                 const Padding(
                                   padding: EdgeInsets.all(10.0),
@@ -415,7 +422,11 @@ Align(
                                 Container(
                                   width: 50,
                                   height: 50,
-                                  color: Colors.red[300],
+                                  decoration: BoxDecoration(
+                                      color: Colors.red[300],
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                    child: Image.asset('assets/misc assets/lightning.png'),
                                 ),
                                 const Padding(
                                   padding: EdgeInsets.all(10.0),
