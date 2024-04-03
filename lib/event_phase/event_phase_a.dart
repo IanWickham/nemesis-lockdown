@@ -27,28 +27,18 @@ import 'event_phase_b.dart';
                     'Reveal CSS Pod',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
-                  const SizedBox(height: 160.0),
+                  const SizedBox(height: 30.0),
 
 
                   Container(
-                    width: 200,
-                    height: 200,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellow,
-                    ),
-                    child: Center(
-                        child: Text(
-                        'CSS',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 50),
-                    // Child widget to center text under the graphic
-                  ),
-                    ),
+                    width: 330,
+                    height: 330,
+                    child: Image.asset('assets/misc assets/css.png'),
+
                   ),
 
 
-                  const SizedBox(height: 70.0),
+                  const SizedBox(height: 30.0),
 
                   Container(
                     width: 350,

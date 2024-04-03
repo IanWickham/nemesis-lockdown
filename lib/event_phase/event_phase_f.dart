@@ -15,14 +15,14 @@ class EventPhaseF extends StatefulWidget {
 }
 
 class _EventPhaseFState extends State<EventPhaseF> {
-  late Image img;
+  bool intruderRetreats = false;
   @override
   void initState() {
     super.initState();
-    img = Image.network(eventDeck.drawCard());
-
-
   }
+
+
+
   @override
   Widget build(BuildContext context) => Scaffold(
       body: Stack(
@@ -43,13 +43,8 @@ class _EventPhaseFState extends State<EventPhaseF> {
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
 
+                  Image.asset(eventDeck.cards[0].picture, width: 350),
 
-
-                  Container(
-                    width: 330, // Adjust width as per your requirement
-                    height: 330, // Adjust height as per your requirement
-                    child: img,
-                  ),
 
 
                   const SizedBox(height: 5.0),
@@ -60,6 +55,7 @@ class _EventPhaseFState extends State<EventPhaseF> {
 
                   ElevatedButton(
                       onPressed: () {
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(

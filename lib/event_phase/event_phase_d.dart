@@ -32,15 +32,18 @@ class EventPhaseD extends StatelessWidget {
                     'Intruder Attack',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
-                  const SizedBox(height: 280.0),
+                  const SizedBox(height: 20.0),
 
 
                   Container(
+                    width: 330, // Adjust width as per your requirement
+                    height: 330, // Adjust height as per your requirement
+                    child: Image.asset('assets/misc assets/claw.png'),
 
                   ),
 
 
-
+                  const SizedBox(height: 20.0),
 
                   Container(
                     width: 350,
@@ -54,7 +57,7 @@ class EventPhaseD extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 60.0),
+                  const SizedBox(height: 20.0),
 
                   ElevatedButton(
                       onPressed: () {

@@ -27,15 +27,18 @@ class EventPhaseB extends StatelessWidget {
                     'Move Time Track',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
-                  const SizedBox(height: 320.0),
+                  const SizedBox(height: 30.0),
 
 
                   Container(
+                    width: 380, // Adjust width as per your requirement
+                    height: 380, // Adjust height as per your requirement
+                    child: Image.asset('assets/misc assets/timeToken.png'),
 
                   ),
 
 
-                  const SizedBox(height: 70.0),
+                  const SizedBox(height: 30.0),
 
                   Container(
                     width: 350,
