@@ -195,58 +195,46 @@ class Event extends Deck {
     cardBack = 'assets/event/back_of_card.png';
     var names = [
       'Blood Trace', 'Blood Trace',                           //2 cards
-      'Blue Screen', 'Blue Screen',                           //2 cards
-      'Bulkheads Open', 'Bulkheads Open',                     //2 cards
-      'Consuming Fire', 'Consuming Fire',                     //2 cards
-      'Coolant Leak', 'Coolant Leak',                         //2 cards
-      'Damage', 'Damage',                                     //2 cards
-      'Damaging Fire',                                        //1 card
-      'Eclosion',                                             //1 card
-      'Egg Protection', 'Egg Protection',                     //2 cards
+      'Blue Screen',                                          //1 card
+      'Bulkheads Open',                                       //1 card
+      'Consuming Fire',                                       //1 card
+      'Coolant Leak',                                         //1 card
+      'Damage',                                               //1 card
+      'Egg Protection',                                       //1 card
       'Fire in the Hole',                                     //1 card
-      'Hatching', 'Hatching',                                 //2 cards
-      'Hunt', 'Hunt',                                         //2 cards
+      'Hatching',                                             //1 card
       'Kickstopper',                                          //1 card
       'Leaving the Shell', 'Leaving the Shell',               //2 cards
-      'Life Network Failure',                                 //1 card
-      'Lurking', 'Lurking',                                   //2 cards
-      'Nest', 'Nest',                                         //2 cards
-      'Noise in Corridors', 'Noise in Corridors',             //2 cards
-      'Panic', 'Panic',                                       //2 cards
-      'Power Surge', 'Power Surge',                           //2 cards
-      'Regeneration',                                         //1 card
+      'Lurking',                                              //1 card
+      'Nest',                                                 //1 card
+      'Noise in Corridors',                                   //1 card
+      'Panic',                                                //1 card
+      'Power Surge',                                          //1 card
       'Sanitary Network Failure',                             //1 card
       'Scent of Blood',                                       //1 card
-      'Scent of Prey',                                        //1 card
-      'Short Circuit', 'Short Circuit',                       //2 cards
+      'Short Circuit',                                        //1 card
       'That\'s Hot'                                           //1 card
       ];
     var images = [
       'assets/event/blood_trace.png', 'assets/event/blood_trace2.png',
-      'assets/event/blue_screen.png', 'assets/event/blue_screen.png',
-      'assets/event/bulkheads_open.png', 'assets/event/bulkheads_open2.png',
-      'assets/event/consuming_fire.png', 'assets/event/consuming_fire2.png',
-      'assets/event/coolant_leak.png', 'assets/event/coolant_leak.png',
-      'assets/event/damage.png', 'assets/event/damage2.png',
-      'assets/event/damaging_fire.png',
-      'assets/event/eclosion.png',
-      'assets/event/egg_protection.png', 'assets/event/egg_protection.png',
+      'assets/event/blue_screen.png',
+      'assets/event/bulkheads_open.png',
+      'assets/event/consuming_fire.png',
+      'assets/event/coolant_leak.png',
+      'assets/event/damage.png',
+      'assets/event/egg_protection.png',
       'assets/event/fire_in_the_hole.png',
-      'assets/event/hatching.png', 'assets/event/hatching2.png',
-      'assets/event/hunt.png', 'assets/event/hunt2.png',
+      'assets/event/hatching.png',
       'assets/event/kickstopper.png',
       'assets/event/leaving_the_shell.png', 'assets/event/leaving_the_shell2.png',
-      'assets/event/life_network_failure.png',
-      'assets/event/lurking.png', 'assets/event/lurking.png',
-      'assets/event/nest.png', 'assets/event/nest2.png',
-      'assets/event/noise_in_corridors.png', 'assets/event/noise_in_corridors2.png',
-      'assets/event/panic.png', 'assets/event/panic2.png',
-      'assets/event/power_surge.png', 'assets/event/power_surge2.png',
-      'assets/event/regeneration.png',
+      'assets/event/lurking.png',
+      'assets/event/nest.png',
+      'assets/event/noise_in_corridors.png',
+      'assets/event/panic.png',
+      'assets/event/power_surge.png',
       'assets/event/sanitary_network_failure.png',
       'assets/event/scent_of_blood.png',
-      'assets/event/scent_of_prey.png',
-      'assets/event/short_circuit.png', 'assets/event/short_circuit.png',
+      'assets/event/short_circuit.png',
       'assets/event/that\'s_hot.png'
     ];
     generateDeck(names, images);

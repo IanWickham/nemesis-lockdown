@@ -27,7 +27,7 @@ class EventPhaseB extends StatelessWidget {
                     'Move Time Track',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
-                  const SizedBox(height: 30.0),
+
 
 
                   Container(

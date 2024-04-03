@@ -27,8 +27,9 @@ class SetupScreen extends StatelessWidget {
                               text: 'EXCEPT ',
                               style: TextStyle(color: Colors.red[300]),
                             ),
-                            const TextSpan(
+                             TextSpan(
                               text: 'for:',
+                              style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 30),
                             ),
                           ]
                       )
