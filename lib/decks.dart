@@ -182,7 +182,7 @@ class NightStalkerAttack extends Deck {
       'assets/attack/cut.png', 'assets/attack/cut2.png', 'assets/attack/cut3.png', 'assets/attack/cut4.png', 'assets/attack/cut5.png',
       'assets/attack/evolve.png', 'assets/attack/evolve2.png',
       'assets/attack/infecting_the_host.png',
-      'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark2.png', 'assets/attack/perched_in_the_dark3.png', 'assets/attack/perched_in_the_dark4.png',
+      'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark2.png', 'assets/attack/perched_in_the_dark3.png', 'assets/attack/perched_in_the_dark4.png', 'assets/attack/perched_in_the_dark5.png',
       'assets/attack/piercing_the_heart.png', 'assets/attack/piercing_the_heart2.png',
     ];
     generateDeck(names, images);
