@@ -39,11 +39,6 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Player Phase',
-                          style: GoogleFonts.novaSquare(
-                              color: Colors.blue, fontSize: 30),
-                        ),
                         Padding(
                           padding: EdgeInsets.all(30.0),
                           child: Container( //Wrap the Material widget for the selection border
@@ -105,6 +100,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                         ElevatedButton(
                         //Moving on to event phase
                             onPressed: () {
+                              track++;
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

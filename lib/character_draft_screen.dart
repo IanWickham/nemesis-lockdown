@@ -48,7 +48,7 @@ var characterDraftDeck = CharacterDraft();
                       Container(//Wrap the Material widget for the character selection border
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: topIsPressed ? (Colors.green[300])! : Colors.transparent,
+                            color: topIsPressed ? (Colors.blue[300])! : Colors.transparent,
                             width: 5,
                           )
                         ),
@@ -56,7 +56,7 @@ var characterDraftDeck = CharacterDraft();
                           child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                splashColor: Colors.lightGreen[200],
+                                splashColor: Colors.blue[300],
                                 onTap: () {
                                   setState(() {
                                     topIsPressed = true;
@@ -77,7 +77,7 @@ var characterDraftDeck = CharacterDraft();
                       Container(//Wrap the Material widget for the character selection border
                         decoration: BoxDecoration(
                             border: Border.all(
-                              color: botIsPressed ? (Colors.green[300])! : Colors.transparent,
+                              color: botIsPressed ? (Colors.blue[300])! : Colors.transparent,
                               width: 5,
                             )
                         ),
@@ -85,7 +85,7 @@ var characterDraftDeck = CharacterDraft();
                         child: Material(
                             color: Colors.transparent,
                             child: InkWell(
-                              splashColor: Colors.lightGreen[200],
+                              splashColor: Colors.blue[300],
                               onTap: () {
                                 setState(() {
                                   topIsPressed = false;

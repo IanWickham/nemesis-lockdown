@@ -24,10 +24,7 @@ class EventPhaseD extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.all(20.0),
                   ),
-                  Text(
-                    'Event Phase',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
+                  const SizedBox(height: 20.0),
                   Text(
                     'Intruder Attack',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
@@ -36,8 +33,8 @@ class EventPhaseD extends StatelessWidget {
 
 
                   Container(
-                    width: 330, // Adjust width as per your requirement
-                    height: 330, // Adjust height as per your requirement
+                    width: 300, // Adjust width as per your requirement
+                    height: 300, // Adjust height as per your requirement
                     child: Image.asset('assets/misc assets/claw.png'),
 
                   ),

@@ -21,7 +21,6 @@ class _PlayerPhaseStartScreenState extends State<PlayerPhaseStartScreen> {
       body: Stack(
         children: <Widget>[
           getBackground(),
-          getTurnCounter(),
 
           Center(
             child: Column(

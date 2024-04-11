@@ -35,10 +35,6 @@ class _EventPhaseFState extends State<EventPhaseF> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
-                  Text(
                     'Resolve Event Card',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),

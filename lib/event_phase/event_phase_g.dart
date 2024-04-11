@@ -31,10 +31,6 @@ class _EventPhaseGState extends State<EventPhaseG> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
-                  Text(
                     'Intruder Bag Development',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
@@ -68,6 +64,7 @@ class _EventPhaseGState extends State<EventPhaseG> {
 
                   ElevatedButton(
                       onPressed: () {
+                        track=0;
                         Navigator.push(
                           context,
                           MaterialPageRoute(

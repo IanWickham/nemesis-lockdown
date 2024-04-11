@@ -19,10 +19,7 @@ import 'event_phase_b.dart';
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Event Phase',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
+                  const SizedBox(height: 30.0),
                    Text(
                     'Reveal CSS Pod',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),

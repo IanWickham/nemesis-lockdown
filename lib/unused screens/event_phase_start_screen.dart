@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../event_phase_main_screen.dart';
+import 'event_phase_main_screen.dart';
 import '../globals.dart';
 
 class EventPhaseStartScreen extends StatefulWidget {

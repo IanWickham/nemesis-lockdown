@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nemesis_lockdown_companion/player_phase_start_screen.dart';
-import 'decks.dart';
-import 'globals.dart';
+import '../decks.dart';
+import '../globals.dart';
 
 class EventPhaseMainScreen extends StatefulWidget {
   const EventPhaseMainScreen({super.key});

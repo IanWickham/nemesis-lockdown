@@ -30,10 +30,6 @@ class _EventPhaseEState extends State<EventPhaseE> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
-                  Text(
                     'Fire Damage',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),

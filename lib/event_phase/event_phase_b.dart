@@ -19,10 +19,7 @@ class EventPhaseB extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Event Phase',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
+                  const SizedBox(height: 70.0),
                   Text(
                     'Move Time Track',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
@@ -38,7 +35,7 @@ class EventPhaseB extends StatelessWidget {
                   ),
 
 
-                  const SizedBox(height: 30.0),
+                  const SizedBox(height: 10.0),
 
                   Container(
                     width: 350,
