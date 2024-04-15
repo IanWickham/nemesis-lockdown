@@ -18,6 +18,7 @@ class _EventPhaseFState extends State<EventPhaseF> {
   bool intruderRetreats = false;
   @override
   void initState() {
+    eventDeck.shuffle();
     super.initState();
   }
 
@@ -34,6 +35,9 @@ class _EventPhaseFState extends State<EventPhaseF> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.all(30.0),
+                  ),
                   Text(
                     'Resolve Event Card',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
@@ -43,24 +47,18 @@ class _EventPhaseFState extends State<EventPhaseF> {
 
 
 
-                  const SizedBox(height: 5.0),
 
 
-                  const SizedBox(height: 30.0),
+                  const SizedBox(height: 20.0),
 
 
                   ElevatedButton(
                       onPressed: () {
-
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const EventPhaseG()),
                         );
-
-
-
-
                       },
                       style: ElevatedButton.styleFrom(
                           side: const BorderSide(width: 1, color: Colors.black),

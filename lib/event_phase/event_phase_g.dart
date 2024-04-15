@@ -30,18 +30,24 @@ class _EventPhaseGState extends State<EventPhaseG> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.all(70.0),
+                  ),
                   Text(
-                    'Intruder Bag Development',
+                    'Intruder Bag',
+                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
+                  ),
+                  Text(
+                    'Development',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
 
 
 
                   Container(
-                    width: 330, // Adjust width as per your requirement
-                    height: 330, // Adjust height as per your requirement
+                    width: 250, // Adjust width as per your requirement
+                    height: 250, // Adjust height as per your requirement
                     //Display Intruder token here
-
                   ),
 
 
@@ -65,6 +71,7 @@ class _EventPhaseGState extends State<EventPhaseG> {
                   ElevatedButton(
                       onPressed: () {
                         track=0;
+                        currentTurn--;
                         Navigator.push(
                           context,
                           MaterialPageRoute(

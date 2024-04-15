@@ -277,7 +277,7 @@ class _EventPhaseMainScreenState extends State<EventPhaseMainScreen> {
                   const Padding(
                     padding: EdgeInsets.all(20.0),
                   ),
-                  Image.asset(nightStalkerAttackDeck.cards[0].picture, width: 350),
+                  Image.asset(intruderDeck.cards[0].picture, width: 350),
 
                   const Padding(
                     padding: EdgeInsets.all(10.0),
@@ -353,7 +353,7 @@ class _EventPhaseMainScreenState extends State<EventPhaseMainScreen> {
           ),
           Align(
             alignment: const Alignment(3, -0.5345),
-            child: queenOrCreeper ? Image.asset(nightStalkerAttackDeck.cards[1].picture, width: 350) : null,
+            child: queenOrCreeper ? Image.asset(intruderDeck.cards[1].picture, width: 350) : null,
           ),
         ]
     );

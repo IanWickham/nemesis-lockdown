@@ -18,6 +18,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
   bool spawnIntruder = false;
   bool queenOrCreeper = false;
   bool intruderRetreats = false;
+
   @override
   void initState() {
     super.initState();
@@ -39,20 +40,23 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        const Padding(
+                          padding: EdgeInsets.all(10.0),
+                        ),
                         Padding(
-                          padding: EdgeInsets.all(30.0),
+                          padding: const EdgeInsets.all(30.0),
                           child: Container( //Wrap the Material widget for the selection border
 
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: prompt ? (Colors.green[300])! : Colors.transparent,
+                                color: prompt ? (Colors.blue[300])! : Colors.transparent,
                                 width: 5,
                               )
                           ),
                           child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                splashColor: Colors.green[200],
+                                splashColor: Colors.blue[300],
                                 onTap: () {
                                   setState(() {
                                     prompt = true;
@@ -75,6 +79,15 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
 
                         ElevatedButton(
                             onPressed: () {
+                              /*
+                              Reshuffles the discard pile if there is 1 or 0 cards left.
+                              For the case there is 1 card left, it shuffles the discard pile
+                              before adding it behind the one card left to preserve its position.
+                               */
+                              if(intruderDeck.cards.isEmpty || intruderDeck.cards.length == 1)
+                              {
+                                intruderDeck.reshuffleDiscard();
+                              }
                               setState(() {
                                 drawIntruderCard = true;
                               });
@@ -132,7 +145,22 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
               Center( //display spawn intruder screen
                 child: intruderRetreats ? getIntruderRetreatsScreen() : null,
               ),
-
+              //Widget to test discarding and shuffling logic
+              /*
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(40.0),
+                    child: Text(
+                    '# Deck: ${intruderDeck.cards.length} # Discard: ${intruderDeck.discard.length}',
+                    style: GoogleFonts.novaSquare(
+                        color: Colors.greenAccent, fontSize: 25),
+                                    ),
+                  ),
+                ],
+              )*/
 
             ],
           )
@@ -227,7 +255,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
           ElevatedButton(
               onPressed: () {
                 setState(() {
-                  computerActionsDeck.cycleTopCard();
+                  computerActionsDeck.shuffle();
                 });
               },
               style: getButtonStyle(200, 60, Colors.red[300]!),
@@ -261,7 +289,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                 const Padding(
                   padding: EdgeInsets.all(20.0),
                 ),
-                Image.asset(nightStalkerAttackDeck.cards[0].picture, width: 350),
+                Image.asset(intruderDeck.cards[0].picture, width: 330),
 
                 const Padding(
                   padding: EdgeInsets.all(10.0),
@@ -292,6 +320,13 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () {
+
+                      if(queenOrCreeper) //discards the second card to the discard pile if the user pressed 'draw +1'
+                          {
+                        intruderDeck.discardCard(1);
+                      }
+                      //discards the first card to the discard pile
+                      intruderDeck.discardCard(0);
                       setState(() {
                         queenOrCreeper = false;
                         drawIntruderCard = false;
@@ -304,8 +339,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
           ),
         ),
 Align(
-  alignment: const Alignment(2, -0.5),
-  child: queenOrCreeper ? Image.asset(nightStalkerAttackDeck.cards[1].picture, width: 350) : null,
+  alignment: const Alignment(3, -0.6),
+  child: queenOrCreeper ? Image.asset(intruderDeck.cards[1].picture, width: 330) : null,
 ),
       ]
     );
@@ -337,6 +372,8 @@ Align(
 
                   ElevatedButton(
                       onPressed: () {
+                        //discards the first card to the discard pile
+                        eventDeck.discardCard(0);
                         setState(() {
                           intruderRetreats = false;
                         });

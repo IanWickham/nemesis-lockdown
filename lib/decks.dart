@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Card {
   String name;
   String picture;
@@ -20,6 +22,7 @@ class Deck {
   String deckName = '';
   List<Card> cards = [];
   String cardBack = '';
+  List<Card> discard = [];
 
   //Lists the entire contents of the deck in order
   toString() {
@@ -34,7 +37,7 @@ class Deck {
   //Adds each card to the deck, later I will pass the image of the card as an arguement
   void generateDeck(List<String> names, List<String> images) {
     for(int i = 0; i<names.length; i++) {
-      
+
         var card = Card(names[i], images[i]);  //stores the list of names, and the list of addresses to their image
         cards.add(card);
 
@@ -44,8 +47,24 @@ class Deck {
   
   //returns the address of the image of top card
   String drawCard() {
-  //print('Your card is ${cards[0]}.');
   return cards[0].picture;
+  }
+
+  //add card at the index to discard pile, and remove it from the deck
+  void discardCard(int x) {
+    discard.add(cards[x]);
+    removeCard(x);
+  }
+
+  //reshuffle all the cards in the discard pile into the deck. Note: this does not check if the deck is currently empty
+  void reshuffleDiscard() {
+    discard.shuffle(); //shuffles the cards in discard pile before adding; this is for the case of the 'Draw +1' button where there is 1 card left in the deck. It will keep that card on the top of the deck.
+    for(int i = 0; i < (discard.length); i++)
+    {
+      cards.add(discard[i]);
+    }
+    discard.clear();
+
   }
 
   //removes a card from the deck at a particular index
@@ -58,7 +77,7 @@ class TokenGrabBag extends Deck {
 
   List<Token> tokens = [];
 
-  TokenGrabBag() {
+  TokenGrabBag(int numplayers) {
     deckName = 'Intruder Token Grab Bag';
 
     var names = [
@@ -103,16 +122,35 @@ class TokenGrabBag extends Deck {
       4, 4,                       //breeder red values
       4                           //queen red value
     ];
-    generateGrabBag(names, images, blue, red);
+    generateGrabBag(names, images, blue, red, numplayers);
   }
   @override
   void shuffle() {
     tokens.shuffle();
   }
-  void generateGrabBag(List<String> names, List<String> images, List<int?> blue, List<int?> red) {
-    for(int i = 0; i<names.length; i++) {
+  //generate the grab bag based on the number of players received from the player number screen
+  void generateGrabBag(List<String> names, List<String> images, List<int?> blue, List<int?> red, int numplayers) {
 
-      var token = Token(names[i], images[i], blue[i], red[i]);  //stores the list of names, images, and stats
+    //Sets can only have unique items
+    Set<int> tokenIndices = {};
+    //Add blank token
+    tokenIndices.add(0);
+    //Add larvae tokens
+    for(int i = 0; i<4; i++) {
+      tokenIndices.add(1+Random().nextInt(7));
+    }
+    //Add creeper token
+    tokenIndices.add(8+Random().nextInt(3));
+    //Add adult tokens based on the number of players
+    for(int i = 0; i<3+numplayers; i++) {
+      tokenIndices.add(11+Random().nextInt(12));
+    }
+    //add the queen token
+    tokenIndices.add(25);
+
+    for(int i = 0; i < tokenIndices.length; i++)
+      {
+      var token = Token(names[tokenIndices.elementAt(i)], images[tokenIndices.elementAt(i)], blue[tokenIndices.elementAt(i)], red[tokenIndices.elementAt(i)]);  //stores the list of names, images, and stats
       tokens.add(token);
     }
     shuffle();
@@ -182,7 +220,7 @@ class NightStalkerAttack extends Deck {
       'assets/attack/cut.png', 'assets/attack/cut2.png', 'assets/attack/cut3.png', 'assets/attack/cut4.png', 'assets/attack/cut5.png',
       'assets/attack/evolve.png', 'assets/attack/evolve2.png',
       'assets/attack/infecting_the_host.png',
-      'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark2.png', 'assets/attack/perched_in_the_dark3.png', 'assets/attack/perched_in_the_dark4.png', 'assets/attack/perched_in_the_dark5.png',
+      'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark.png', 'assets/attack/perched_in_the_dark2.png', 'assets/attack/perched_in_the_dark3.png', 'assets/attack/perched_in_the_dark4.png',
       'assets/attack/piercing_the_heart.png', 'assets/attack/piercing_the_heart2.png',
     ];
     generateDeck(names, images);

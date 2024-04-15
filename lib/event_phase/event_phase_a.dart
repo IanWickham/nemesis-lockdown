@@ -19,12 +19,12 @@ import 'event_phase_b.dart';
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 30.0),
-                   Text(
+                  const SizedBox(height: 50.0),
+                  Text(
                     'Reveal CSS Pod',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
-                  const SizedBox(height: 30.0),
+                  const SizedBox(height: 20.0),
 
 
                   Container(
@@ -35,7 +35,7 @@ import 'event_phase_b.dart';
                   ),
 
 
-                  const SizedBox(height: 30.0),
+                  const SizedBox(height: 20.0),
 
                   Container(
                     width: 350,
@@ -49,7 +49,7 @@ import 'event_phase_b.dart';
                     ),
                   ),
 
-                  const SizedBox(height: 80.0),
+                  const SizedBox(height: 50.0),
 
 
                   ElevatedButton(

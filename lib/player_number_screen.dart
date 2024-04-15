@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'character_draft_screen.dart';
 import 'globals.dart';
+import 'decks.dart';
 
 class PlayerNumberScreen extends StatefulWidget {
   @override
@@ -59,10 +60,11 @@ class _PlayerNumberScreenState extends State<PlayerNumberScreen> {
                   ElevatedButton(
                       onPressed: () {
                         playerCount = _currentSliderValue.round();            //define the player count
+                        intruderGrabBag = TokenGrabBag(playerCount);          //create the intruderGrabBag based on the number of players
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => CharacterDraftScreen()),
+                              builder: (context) => const CharacterDraftScreen()),
                         );
                       },
                       style: getButtonStyle(300, 60, Colors.red[300]!),

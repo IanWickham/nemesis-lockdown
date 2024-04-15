@@ -16,7 +16,6 @@ class StaticApp extends StatelessWidget {
       title: 'Nemesis Lockdown Companion App',
       theme: ThemeData(
         primarySwatch: Colors.orange,
-
       ),
       home: const HomeScreen(),
     );

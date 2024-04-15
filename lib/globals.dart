@@ -4,14 +4,13 @@ import 'decks.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 int playerCount = 0; //initialize to 0, playerCount gets defined in PlayerNumberScreen
-int currentTurn = 1; //initialize to up to 15, starting at 1,gets defines in EventPhaseMainScreen
+int currentTurn = 15; //initialize to up to 15, starting at 1,gets defines in EventPhaseMainScreen
 int track=0;
-var nightStalkerAttackDeck = NightStalkerAttack();
+var intruderDeck = NightStalkerAttack();
 var computerActionsDeck = ComputerActions();
 //var characterDraftDeck = CharacterDraft();
 var eventDeck = Event();
-var intruderGrabBag = TokenGrabBag();
-
+var intruderGrabBag;
 
 Widget getBackground() {
   return Container(
@@ -22,7 +21,7 @@ Widget getBackground() {
         fit: BoxFit.cover,
       ),
       border: Border.all(
-        width: 4,
+        width: 2,
         color: Colors.white,
       ),
       borderRadius: BorderRadius.circular(20),
@@ -41,7 +40,7 @@ Widget getTurnCounter() {
       children: [
         AppBar(title: RichText(
             text: TextSpan(
-                style: GoogleFonts.novaSquare(fontSize: 22),
+                style: GoogleFonts.novaSquare(fontSize: 21),
                 children: <TextSpan>[
                   for(int i = 15; i >= 1; i--)
                     ...[

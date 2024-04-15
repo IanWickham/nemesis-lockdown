@@ -29,11 +29,13 @@ class _EventPhaseEState extends State<EventPhaseE> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.all(20.0),
+                  ),
                   Text(
                     'Fire Damage',
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
                   ),
-
 
 
                   Container(

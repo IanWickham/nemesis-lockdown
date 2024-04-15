@@ -31,7 +31,7 @@ class EventPhaseC extends StatelessWidget {
 
                   Container(
                     width: 330, // Adjust width as per your requirement
-                    height: 330, // Adjust height as per your requirement
+                    height: 250, // Adjust height as per your requirement
                     child: Image.asset('assets/misc assets/noise.png'),
 
                   ),
@@ -42,7 +42,7 @@ class EventPhaseC extends StatelessWidget {
                   Container(
                     width: 350,
                     child: Text(
-                      'For sections with power remove noise from all corridors that aren’t adjacent to characters',
+                      'For sections with power: Remove noise from all corridors that aren’t adjacent to characters',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,

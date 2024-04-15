@@ -43,7 +43,7 @@ var characterDraftDeck = CharacterDraft();
                             color: Colors.white, fontSize: 30),
                       ),
                       const Padding(
-                        padding: EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(5.0),
                       ),
                       Container(//Wrap the Material widget for the character selection border
                         decoration: BoxDecoration(
@@ -72,7 +72,7 @@ var characterDraftDeck = CharacterDraft();
                           ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(5.0),
                       ),
                       Container(//Wrap the Material widget for the character selection border
                         decoration: BoxDecoration(
@@ -101,7 +101,7 @@ var characterDraftDeck = CharacterDraft();
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(5.0),
                       ),
                       ElevatedButton(
                           onPressed: () {
