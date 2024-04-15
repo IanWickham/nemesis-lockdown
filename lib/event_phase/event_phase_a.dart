@@ -13,7 +13,7 @@ import 'event_phase_b.dart';
       body: Stack(
         children: <Widget>[
           getBackground(),
-          getTurnCounter(),
+          getTurnCounter(context),
 
           Center(
             child: Column(

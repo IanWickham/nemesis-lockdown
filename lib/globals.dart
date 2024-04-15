@@ -30,52 +30,69 @@ Widget getBackground() {
 }
 
 
-Widget getTurnCounter() {
-  return Positioned( //Place it at the top, and not use the entire screen
+Widget getTurnCounter(BuildContext context) {
+  return Positioned(
     top: 0.0,
     left: 0.0,
     right: 0.0,
-    //Displays current turn
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppBar(title: RichText(
+        AppBar(
+          title: RichText(
             text: TextSpan(
-                style: GoogleFonts.novaSquare(fontSize: 21),
-                children: <TextSpan>[
-                  for(int i = 15; i >= 1; i--)
-                    ...[
-                      const TextSpan(
-                        text: ' ',
+              style: GoogleFonts.novaSquare(fontSize: 21),
+              children: <TextSpan>[
+                for (int i = 15; i >= 1; i--)
+                  ...[
+                    const TextSpan(
+                      text: ' ',
+                    ),
+                    TextSpan(
+                      text: '$i',
+                      style: TextStyle(
+                        color: (currentTurn == i) ? Colors.blue[300] : Colors.grey,
+                        background: Paint()
+                          ..color = (currentTurn == i)
+                              ? Colors.blue[300]!
+                              : Colors.transparent
+                          ..style = PaintingStyle.stroke
+                          ..strokeWidth = 2.0
+                          ..strokeJoin = StrokeJoin.bevel
+                          ..blendMode = BlendMode.difference,
                       ),
-                      TextSpan(
-                        text: '$i',
-                        style: TextStyle(
-                          color: (currentTurn == i) ? Colors.white : Colors.grey,
-                          background: Paint()
-                            ..color = (currentTurn == i)
-                                ? Colors.red[400]!
-                                : Colors.transparent
-                            ..style = PaintingStyle.stroke
-                            ..strokeWidth = 2.0
-                            ..strokeJoin = StrokeJoin.bevel
-                            ..blendMode = BlendMode.difference,
-                        ),
-                      ),
-                    ],
-                  const TextSpan(
-                    text: ' ',
-                  ),
-                ]
-            )
-        ),
+                    ),
+                  ],
+                const TextSpan(
+                  text: ' ',
+                ),
+              ],
+            ),
+          ),
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
           elevation: 0.0,
         ),
-        // Player phase text
-        Text(
-          getPlayerPhaseText(), // Call a function to determine the player phase text
-          style: getPlayerPhaseTextStyle(), // Adjust style as needed
+
+        Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.menu_rounded, size: 45, color: Colors.grey),
+              onPressed: () {
+
+              },
+            ),
+            SizedBox(width: 55),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  getPlayerPhaseText(),
+                  style: getPlayerPhaseTextStyle(),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     ),
@@ -117,5 +134,9 @@ return ElevatedButton.styleFrom(
   fixedSize: Size(width, height),
   textStyle: TextStyle(fontSize: fontsize ?? 30, color: Colors.black, fontFamily: 'NovaSquare'));
 }
+
+
+
+
 
 

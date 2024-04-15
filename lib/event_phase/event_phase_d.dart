@@ -15,7 +15,7 @@ class EventPhaseD extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           getBackground(),
-          getTurnCounter(),
+          getTurnCounter(context),
 
           Center(
             child: Column(

@@ -36,7 +36,7 @@ class _EventPhaseMainScreenState extends State<EventPhaseMainScreen> {
         body: Stack(
           children: <Widget>[
             getBackground(),
-            getTurnCounter(),
+            getTurnCounter(context),
 
             Center(
               child: IgnorePointer(

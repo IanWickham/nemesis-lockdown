@@ -21,7 +21,7 @@ class _EventPhaseStartScreenState extends State<EventPhaseStartScreen> {
       body: Stack(
         children: <Widget>[
           getBackground(),
-          getTurnCounter(),
+          getTurnCounter(context),
 
           Center(
             child: Column(

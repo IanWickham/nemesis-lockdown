@@ -23,7 +23,7 @@ class _EventPhaseEState extends State<EventPhaseE> {
       body: Stack(
         children: <Widget>[
           getBackground(),
-          getTurnCounter(),
+          getTurnCounter(context),
 
           Center(
             child: Column(

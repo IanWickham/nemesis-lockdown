@@ -31,7 +31,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
           body: Stack(
             children: <Widget>[
               getBackground(),
-              getTurnCounter(),
+              getTurnCounter(context),
 
               Center(
                 child: IgnorePointer(
