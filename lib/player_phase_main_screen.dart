@@ -11,7 +11,8 @@ class PlayerPhaseMainScreen extends StatefulWidget {
   State<PlayerPhaseMainScreen> createState() => _PlayerPhaseMainScreenState();
 }
 
-class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen> {
+class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
+{
   bool covered = false;
   bool prompt = false;
   bool drawIntruderCard = false;
