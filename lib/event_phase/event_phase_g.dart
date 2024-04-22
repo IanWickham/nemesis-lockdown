@@ -31,7 +31,7 @@ class _EventPhaseGState extends State<EventPhaseG> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Padding(
-                    padding: EdgeInsets.all(70.0),
+                    padding: EdgeInsets.all(50.0),
                   ),
                   Text(
                     'Intruder Bag\nDevelopment',
@@ -40,11 +40,11 @@ class _EventPhaseGState extends State<EventPhaseG> {
 
 
 
+
                   Container(
                     width: 250, // Adjust width as per your requirement
                     height: 250, // Adjust height as per your requirement
-                    //Display Intruder token here
-
+                    child: Image.asset(intruderGrabBag.tokens[0].picture),
                   ),
 
 

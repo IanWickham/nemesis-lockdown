@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nemesis_lockdown_companion/event_phase/event_phase_a.dart';
+import 'package:nemesis_lockdown_companion/event_phase/event_phase_b.dart';
 import 'unused screens/event_phase_start_screen.dart';
 import 'globals.dart';
 
@@ -112,17 +113,22 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
                           padding: EdgeInsets.all(10.0),
                         ),
                         ElevatedButton(
-                        //Moving on to event phase
+                          // Moving on to event phase
                             onPressed: () {
-                              track++;
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EventPhaseA())
-                                //^^change this here if you want to see either of^^
-                                // Eve's or Tanner's implementation of the Event Phase
-                                //Target either EventPhaseStartScreen() or EventPhaseA()
-                              );
+                              setState(() {
+                                track++; // Increment track when button is pressed
+                              });
+                              if (track == 10 || track == 8 || track == 6 || track == 4 || track == 2 || track == 1) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const EventPhaseA())
+                                );
+                              } else {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const EventPhaseB())
+                                );
+                              }
                             },
                             style: getButtonStyle(300, 60, Colors.red[300]!),
                             child: const Text('End Player Phase')
