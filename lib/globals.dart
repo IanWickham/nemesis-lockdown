@@ -122,6 +122,10 @@ AlertDialog getMenuDialog(BuildContext context) {
           ),
           ElevatedButton(
               onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => getVictoryCheckConfirmation(context),
+                );
 
               },
               style: getButtonStyle(200, 60, Colors.yellowAccent, 23),
@@ -137,6 +141,74 @@ AlertDialog getMenuDialog(BuildContext context) {
               style: getButtonStyle(140, 60, Colors.blue[300]!, 23),
               child: const Text('Close')
           ),
+        ],
+      ),
+    ),
+  );
+}
+
+AlertDialog getVictoryCheckConfirmation(BuildContext context) {
+  return AlertDialog(
+    title: Text("WARNING", style: GoogleFonts.novaSquare(
+        color: Colors.red,
+        fontSize: 30,
+        fontWeight: FontWeight.bold)),
+    backgroundColor: Colors.black.withOpacity(0.6),
+    shape: RoundedRectangleBorder(
+      side: const BorderSide(color: Colors.red, width: 2),
+      borderRadius: BorderRadius.circular(20),
+    ),
+    content: SizedBox(
+      width: 300,
+      height: 400,
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(10.0),
+          ),
+          Text("Performing the Victory Check will reset the contents of all simulated game elements and end the game.", style: GoogleFonts.novaSquare(
+              color: Colors.yellow,
+              fontSize: 22, )),
+          const Padding(
+            padding: EdgeInsets.all(20.0),
+          ),
+          Center(
+            child: Text("Do you want to", style: GoogleFonts.novaSquare(
+                color: Colors.red,
+                fontSize: 26,
+                fontWeight: FontWeight.bold)),
+          ),
+          Center(
+            child: Text("continue?", style: GoogleFonts.novaSquare(
+                color: Colors.red,
+                fontSize: 26,
+                fontWeight: FontWeight.bold)),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(20.0),
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: getButtonStyle(130, 60, Colors.yellowAccent, 23),
+                  child: const Text('Yes')
+              ),
+              const Padding(
+                padding: EdgeInsets.all(10.0),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: getButtonStyle(130, 60, Colors.blue[300]!, 23),
+                  child: const Text('No')
+              ),
+            ],
+          ),
+
         ],
       ),
     ),
