@@ -115,10 +115,8 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
                         ElevatedButton(
                           // Moving on to event phase
                             onPressed: () {
-                              setState(() {
-                                track++; // Increment track when button is pressed
-                              });
-                              if (track == 10 || track == 8 || track == 6 || track == 4 || track == 2 || track == 1) {
+
+                              if (currentTurn == 10 || currentTurn == 8 || currentTurn == 6 || currentTurn == 4 || currentTurn == 2 || currentTurn == 1) {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => const EventPhaseA())
