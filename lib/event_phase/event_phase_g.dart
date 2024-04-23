@@ -42,7 +42,7 @@ class _EventPhaseGState extends State<EventPhaseG> {
 
 
                   Container(
-                    width: 250, // Adjust width as per your requirement
+                    width: 250, // Adjust width as per your requirement h
                     height: 250, // Adjust height as per your requirement
                     child: Image.asset(intruderGrabBag.tokens[0].picture),
                   ),
