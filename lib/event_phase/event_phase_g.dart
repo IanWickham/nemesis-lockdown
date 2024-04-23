@@ -68,6 +68,7 @@ class _EventPhaseGState extends State<EventPhaseG> {
                   ElevatedButton(
                       onPressed: () {
                         track=0;
+                        currentTurn--;
                         Navigator.push(
                           context,
                           MaterialPageRoute(

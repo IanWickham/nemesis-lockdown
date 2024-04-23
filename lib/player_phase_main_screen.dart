@@ -102,6 +102,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
                         ),
                         ElevatedButton(
                             onPressed: () {
+                              intruderGrabBag.shuffle();
                               setState(() {
                                 spawnIntruder = true;
                               });
@@ -118,7 +119,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
                               setState(() {
                                 track++; // Increment track when button is pressed
                               });
-                              if (track == 10 || track == 8 || track == 6 || track == 4 || track == 2 || track == 1) {
+                              if (currentTurn == 10 || currentTurn == 8 || currentTurn == 6 || currentTurn == 4 || currentTurn == 2 || currentTurn == 1) {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => const EventPhaseA())
@@ -179,12 +180,12 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
       height: 400,
       width: 300,
       decoration: BoxDecoration(
-        color: Colors.grey[800]!.withOpacity(0.7),
+        color: Colors.black.withOpacity(0.6),
         border: Border.all(
           width: 2,
           color: Colors.red,
         ),
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -240,12 +241,12 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
         height: 350,
         width: 300,
         decoration: BoxDecoration(
-        color: Colors.grey[800]!.withOpacity(0.9),
+        color: Colors.black.withOpacity(0.8),
         border: Border.all(
           width: 2,
-          color: Colors.tealAccent,
+          color: Colors.yellowAccent,
         ),
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -496,17 +497,9 @@ Align(
                       color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
                 ),
                 const Padding(
-                  padding: EdgeInsets.all(50.0),
+                  padding: EdgeInsets.all(40.0),
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        intruderGrabBag.shuffle();
-                      });
-                    },
-                    style: getButtonStyle(300, 60, Colors.blue[300]!),
-                    child: const Text('Shuffle test')
-                ),
+
                 const Padding(
                   padding: EdgeInsets.all(10.0),
                 ),
@@ -521,7 +514,7 @@ Align(
                     child: const Text('Surprise Attack')
                 ),
                 const Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(15.0),
                 ),
                 ElevatedButton(
                     onPressed: () {

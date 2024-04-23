@@ -29,7 +29,6 @@ Widget getBackground() {
   );
 }
 
-
 Widget getTurnCounter(BuildContext context) {
   return Positioned(
     top: 0.0,
@@ -54,7 +53,7 @@ Widget getTurnCounter(BuildContext context) {
                         color: (currentTurn == i) ? Colors.blue[300] : Colors.grey,
                         background: Paint()
                           ..color = (currentTurn == i)
-                              ? Colors.blue[300]!
+                              ? Colors.blue
                               : Colors.transparent
                           ..style = PaintingStyle.stroke
                           ..strokeWidth = 2.0
@@ -77,12 +76,15 @@ Widget getTurnCounter(BuildContext context) {
         Row(
           children: [
             IconButton(
-              icon: Icon(Icons.menu_rounded, size: 45, color: Colors.grey),
+              icon: const Icon(Icons.menu_rounded, size: 45, color: Colors.grey),
               onPressed: () {
-
+                showDialog(
+                    context: context,
+                    builder: (context) => getMenuDialog(context),
+                );
               },
             ),
-            SizedBox(width: 55),
+            const SizedBox(width: 55),
             Expanded(
               child: Align(
                 alignment: Alignment.centerLeft,
@@ -99,8 +101,48 @@ Widget getTurnCounter(BuildContext context) {
   );
 }
 
+AlertDialog getMenuDialog(BuildContext context) {
+  return AlertDialog(
+    title: Text("Menu", style: GoogleFonts.novaSquare(
+        color: Colors.red[200],
+        fontSize: 24,
+        fontWeight: FontWeight.bold)),
+    backgroundColor: Colors.black.withOpacity(0.6),
+    shape: RoundedRectangleBorder(
+      side: const BorderSide(color: Colors.red, width: 2),
+      borderRadius: BorderRadius.circular(20),
+    ),
+    content: SizedBox(
+      width: 200,
+      height: 236,
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(20.0),
+          ),
+          ElevatedButton(
+              onPressed: () {
 
+              },
+              style: getButtonStyle(200, 60, Colors.yellowAccent, 23),
+              child: const Text('Victory Check')
+          ),
+          const Padding(
+            padding: EdgeInsets.all(20.0),
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              style: getButtonStyle(140, 60, Colors.blue[300]!, 23),
+              child: const Text('Close')
+          ),
+        ],
+      ),
+    ),
 
+  );
+}
 
 String getPlayerPhaseText() {
   if (track == 0) {
