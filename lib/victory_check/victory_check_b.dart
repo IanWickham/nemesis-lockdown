@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../globals.dart';
+import 'victory_check_c.dart';
 
-
-
-class EventPhaseB extends StatefulWidget {
-  const EventPhaseB({super.key});
+class VictoryCheckB extends StatefulWidget {
+  const VictoryCheckB({super.key});
 
   @override
-  State<EventPhaseB> createState() => _EventPhaseBState();
+  State<VictoryCheckB> createState() => _VictoryCheckBState();
 }
 
-class _EventPhaseBState extends State<EventPhaseB> {
+class _VictoryCheckBState extends State<VictoryCheckB> {
   @override
   void initState() {
     super.initState();
@@ -29,27 +28,16 @@ class _EventPhaseBState extends State<EventPhaseB> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
+                    'Contingency Check',
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
                   ),
-                  Text(
-                    'Move Time Track',
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
-                  ),
-                  const SizedBox(height: 320.0),
+                  const SizedBox(height: 160.0),
 
-
-                  Container(
-
-                  ),
-
-
-                  const SizedBox(height: 70.0),
 
                   Container(
                     width: 350,
                     child: Text(
-                      'Advance the time track, and resolve power thresholds',
+                      'Flip the Contingency Token and resolve the effect on survivors',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
@@ -63,7 +51,12 @@ class _EventPhaseBState extends State<EventPhaseB> {
 
                   ElevatedButton(
                       onPressed: () {
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            //goes to next page of victory check if needed or back to main screen
+                              builder: (context) => const VictoryCheckC()),
+                        );
 
                       },
                       style: ElevatedButton.styleFrom(
@@ -76,7 +69,7 @@ class _EventPhaseBState extends State<EventPhaseB> {
                           fixedSize: const Size(300, 60),
                           textStyle: const TextStyle(
                               fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      child: Text('Next Step', style: GoogleFonts.novaSquare())
                   ),
                 ]
             ),

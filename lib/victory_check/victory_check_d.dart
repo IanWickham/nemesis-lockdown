@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../globals.dart';
+import 'victory_check_e.dart';
 
-
-
-class EventPhaseB extends StatefulWidget {
-  const EventPhaseB({super.key});
+class VictoryCheckD extends StatefulWidget {
+  const VictoryCheckD({super.key});
 
   @override
-  State<EventPhaseB> createState() => _EventPhaseBState();
+  State<VictoryCheckD> createState() => _VictoryCheckDState();
 }
 
-class _EventPhaseBState extends State<EventPhaseB> {
+class _VictoryCheckDState extends State<VictoryCheckD> {
   @override
   void initState() {
     super.initState();
@@ -29,27 +28,17 @@ class _EventPhaseBState extends State<EventPhaseB> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
+                    'Contamination Check',
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
                   ),
-                  Text(
-                    'Move Time Track',
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
-                  ),
-                  const SizedBox(height: 320.0),
+                  const SizedBox(height: 160.0),
 
 
-                  Container(
-
-                  ),
-
-
-                  const SizedBox(height: 70.0),
 
                   Container(
                     width: 350,
                     child: Text(
-                      'Advance the time track, and resolve power thresholds',
+                      'Infected Players will now shuffle all of their cards to create a new action deck.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
@@ -60,10 +49,27 @@ class _EventPhaseBState extends State<EventPhaseB> {
 
                   const SizedBox(height: 80.0),
 
+                  Container(
+                    width: 350,
+                    child: Text(
+                      'Draw the top 4 cards, if at least 1 card is contaminated then the character dies.',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.novaSquare(
+                        color: Colors.white,
+                        fontSize: 30,
+                      ),
+                    ),
+                  ),
+
 
                   ElevatedButton(
                       onPressed: () {
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            //goes to next page of victory check if needed or back to main screen
+                              builder: (context) => const VictoryCheckE()),
+                        );
 
                       },
                       style: ElevatedButton.styleFrom(
@@ -76,7 +82,7 @@ class _EventPhaseBState extends State<EventPhaseB> {
                           fixedSize: const Size(300, 60),
                           textStyle: const TextStyle(
                               fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      child: Text('Next Step', style: GoogleFonts.novaSquare())
                   ),
                 ]
             ),
