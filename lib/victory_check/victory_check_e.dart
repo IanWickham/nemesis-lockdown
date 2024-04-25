@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../globals.dart';
 
+//sends user back to main screen
+import '../home_screen.dart';
 
-
-class EventPhaseB extends StatefulWidget {
-  const EventPhaseB({super.key});
+class VictoryCheckE extends StatefulWidget {
+  const VictoryCheckE({super.key});
 
   @override
-  State<EventPhaseB> createState() => _EventPhaseBState();
+  State<VictoryCheckE> createState() => _VictoryCheckEState();
 }
 
-class _EventPhaseBState extends State<EventPhaseB> {
+class _VictoryCheckEState extends State<VictoryCheckE> {
   @override
   void initState() {
     super.initState();
@@ -29,41 +30,22 @@ class _EventPhaseBState extends State<EventPhaseB> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
+                    'Go back to Start?',
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
                   ),
-                  Text(
-                    'Move Time Track',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
-                  ),
-                  const SizedBox(height: 320.0),
+                  const SizedBox(height: 160.0),
 
 
-                  Container(
-
-                  ),
-
-
-                  const SizedBox(height: 70.0),
-
-                  Container(
-                    width: 350,
-                    child: Text(
-                      'Advance the time track, and resolve power thresholds',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.novaSquare(
-                        color: Colors.white,
-                        fontSize: 30,
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 80.0),
 
 
                   ElevatedButton(
                       onPressed: () {
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            //goes back to main/start screen
+                              builder: (context) => const HomeScreen()),
+                        );
 
                       },
                       style: ElevatedButton.styleFrom(
@@ -76,7 +58,7 @@ class _EventPhaseBState extends State<EventPhaseB> {
                           fixedSize: const Size(300, 60),
                           textStyle: const TextStyle(
                               fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      child: Text('Go to Start', style: GoogleFonts.novaSquare())
                   ),
                 ]
             ),

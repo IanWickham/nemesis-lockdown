@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../globals.dart';
-import 'event_phase_b.dart';
+import 'victory_check_e.dart';
 
-
-
-  class EventPhaseA extends StatefulWidget {
-  const EventPhaseA({super.key});
+class VictoryCheckD extends StatefulWidget {
+  const VictoryCheckD({super.key});
 
   @override
-  State<EventPhaseA> createState() => _EventPhaseAState();
+  State<VictoryCheckD> createState() => _VictoryCheckDState();
 }
 
-class _EventPhaseAState extends State<EventPhaseA> {
+class _VictoryCheckDState extends State<VictoryCheckD> {
   @override
   void initState() {
     super.initState();
@@ -30,40 +28,17 @@ class _EventPhaseAState extends State<EventPhaseA> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
+                    'Contamination Check',
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
-                   Text(
-                    'Reveal CSS Pod',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
                   ),
                   const SizedBox(height: 160.0),
 
 
-                  Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellow,
-                    ),
-                    child: Center(
-                        child: Text(
-                        'CSS',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 50),
-                    // Child widget to center text under the graphic
-                  ),
-                    ),
-                  ),
-
-
-                  const SizedBox(height: 70.0),
 
                   Container(
                     width: 350,
                     child: Text(
-                      'Reveal current CSS Pod under the time track',
+                      'Infected Players will now shuffle all of their cards to create a new action deck.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
@@ -74,13 +49,26 @@ class _EventPhaseAState extends State<EventPhaseA> {
 
                   const SizedBox(height: 80.0),
 
+                  Container(
+                    width: 350,
+                    child: Text(
+                      'Draw the top 4 cards, if at least 1 card is contaminated then the character dies.',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.novaSquare(
+                        color: Colors.white,
+                        fontSize: 30,
+                      ),
+                    ),
+                  ),
+
 
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                            builder: (context) => const EventPhaseB()),
+                          context,
+                          MaterialPageRoute(
+                            //goes to next page of victory check if needed or back to main screen
+                              builder: (context) => const VictoryCheckE()),
                         );
 
                       },
@@ -94,7 +82,7 @@ class _EventPhaseAState extends State<EventPhaseA> {
                           fixedSize: const Size(300, 60),
                           textStyle: const TextStyle(
                               fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      child: Text('Next Step', style: GoogleFonts.novaSquare())
                   ),
                 ]
             ),

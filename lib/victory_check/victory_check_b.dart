@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../globals.dart';
-import 'event_phase_b.dart';
+import 'victory_check_c.dart';
 
-
-
-  class EventPhaseA extends StatefulWidget {
-  const EventPhaseA({super.key});
+class VictoryCheckB extends StatefulWidget {
+  const VictoryCheckB({super.key});
 
   @override
-  State<EventPhaseA> createState() => _EventPhaseAState();
+  State<VictoryCheckB> createState() => _VictoryCheckBState();
 }
 
-class _EventPhaseAState extends State<EventPhaseA> {
+class _VictoryCheckBState extends State<VictoryCheckB> {
   @override
   void initState() {
     super.initState();
@@ -30,40 +28,16 @@ class _EventPhaseAState extends State<EventPhaseA> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
+                    'Contingency Check',
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
-                   Text(
-                    'Reveal CSS Pod',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
                   ),
                   const SizedBox(height: 160.0),
 
 
                   Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellow,
-                    ),
-                    child: Center(
-                        child: Text(
-                        'CSS',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 50),
-                    // Child widget to center text under the graphic
-                  ),
-                    ),
-                  ),
-
-
-                  const SizedBox(height: 70.0),
-
-                  Container(
                     width: 350,
                     child: Text(
-                      'Reveal current CSS Pod under the time track',
+                      'Flip the Contingency Token and resolve the effect on survivors',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
@@ -78,9 +52,10 @@ class _EventPhaseAState extends State<EventPhaseA> {
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                            builder: (context) => const EventPhaseB()),
+                          context,
+                          MaterialPageRoute(
+                            //goes to next page of victory check if needed or back to main screen
+                              builder: (context) => const VictoryCheckC()),
                         );
 
                       },
@@ -94,7 +69,7 @@ class _EventPhaseAState extends State<EventPhaseA> {
                           fixedSize: const Size(300, 60),
                           textStyle: const TextStyle(
                               fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      child: Text('Next Step', style: GoogleFonts.novaSquare())
                   ),
                 ]
             ),
