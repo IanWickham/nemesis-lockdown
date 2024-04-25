@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../globals.dart';
-import 'event_phase_b.dart';
+import 'victory_check_d.dart';
 
-
-
-  class EventPhaseA extends StatefulWidget {
-  const EventPhaseA({super.key});
+class VictoryCheckC extends StatefulWidget {
+  const VictoryCheckC({super.key});
 
   @override
-  State<EventPhaseA> createState() => _EventPhaseAState();
+  State<VictoryCheckC> createState() => _VictoryCheckCState();
 }
 
-class _EventPhaseAState extends State<EventPhaseA> {
+class _VictoryCheckCState extends State<VictoryCheckC> {
   @override
   void initState() {
     super.initState();
@@ -30,40 +28,16 @@ class _EventPhaseAState extends State<EventPhaseA> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Event Phase',
+                    'Contamination Check',
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
                   ),
-                   Text(
-                    'Reveal CSS Pod',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
-                  ),
+
                   const SizedBox(height: 160.0),
-
-
-                  Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellow,
-                    ),
-                    child: Center(
-                        child: Text(
-                        'CSS',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 50),
-                    // Child widget to center text under the graphic
-                  ),
-                    ),
-                  ),
-
-
-                  const SizedBox(height: 70.0),
 
                   Container(
                     width: 350,
                     child: Text(
-                      'Reveal current CSS Pod under the time track',
+                      'Each living character checks their contamination cards',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
@@ -72,15 +46,40 @@ class _EventPhaseAState extends State<EventPhaseA> {
                     ),
                   ),
 
-                  const SizedBox(height: 80.0),
+                  Container(
+                    width: 350,
+                    child: Text(
+                      'Scan all cards in their action deck if at least 1 reads infected follow the next step.',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.novaSquare(
+                        color: Colors.white,
+                        fontSize: 30,
+                      ),
+                    ),
+                  ),
 
+                  Container(
+                    width: 350,
+                    child: Text(
+                      '(If player already has larva on their character board, ignore this step and move to the next one.',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.novaSquare(
+                        color: Colors.white,
+                        fontSize: 30,
+                      ),
+                    ),
+                  ),
+
+
+                  const SizedBox(height: 80.0),
 
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                            builder: (context) => const EventPhaseB()),
+                          context,
+                          MaterialPageRoute(
+                            //goes to next page of victory check if needed or back to main screen
+                              builder: (context) => const VictoryCheckD()),
                         );
 
                       },
@@ -94,7 +93,7 @@ class _EventPhaseAState extends State<EventPhaseA> {
                           fixedSize: const Size(300, 60),
                           textStyle: const TextStyle(
                               fontSize: 30, color: Colors.black)),
-                      child: Text('Next', style: GoogleFonts.novaSquare())
+                      child: Text('Next Step', style: GoogleFonts.novaSquare())
                   ),
                 ]
             ),
