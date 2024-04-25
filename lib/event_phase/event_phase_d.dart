@@ -32,7 +32,7 @@ class _EventPhaseDState extends State<EventPhaseD> {
               Text(
                 'Intruder Attack',
                 style: GoogleFonts.novaSquare(
-                    color: Colors.white, fontSize: 40),
+                    color: Colors.yellow, fontSize: 40),
               ),
               Container(
                 width: 280, // Adjust width as per your requirement
@@ -46,7 +46,7 @@ class _EventPhaseDState extends State<EventPhaseD> {
                   'Draw an Intruder Attack Card for each intruder in a room with a player',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.electrolize(
-                    color: Colors.white,
+                    color: Colors.yellow,
                     fontSize: 30,
                   ),
                 ),
@@ -54,10 +54,15 @@ class _EventPhaseDState extends State<EventPhaseD> {
               const SizedBox(height: 20.0),
               ElevatedButton(
                   onPressed: () {
+                    /*
                     if (intruderDeck.cards.isEmpty ||
                         intruderDeck.cards.length == 1) {
                       intruderDeck.reshuffleDiscard();
-                    }
+                    } */
+                    if (intruderDeck.cards.isEmpty)
+                      {
+                        intruderDeck.reshuffleDiscard();
+                      }
                     setState(() {
                       drawIntruderCard = true;
                     });
@@ -108,6 +113,7 @@ class _EventPhaseDState extends State<EventPhaseD> {
               const Padding(
                 padding: EdgeInsets.all(10.0),
               ),
+              /*
               ElevatedButton(
                   onPressed: () {
                     setState(() {
@@ -116,18 +122,17 @@ class _EventPhaseDState extends State<EventPhaseD> {
                   },
                   style: getButtonStyle(300, 60, queenOrCreeper ? Colors.grey[700]! : Colors.blue[300]!), //if the button was pressed, grey it out
                   child: const Text('Draw +1')),
+              */
               const Padding(
-                padding: EdgeInsets.all(10.0),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(5.0),
+                padding: EdgeInsets.all(15.0),
               ),
               ElevatedButton(
                   onPressed: () {
+                    /*
                     if (queenOrCreeper) //discards the second card to the discard pile if the user pressed 'draw +1'
                         {
                       intruderDeck.discardCard(1);
-                    }
+                    } */
                     //discards the first card to the discard pile
                     intruderDeck.discardCard(0);
                     setState(() {

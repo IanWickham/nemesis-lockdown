@@ -24,7 +24,7 @@ class EventPhaseC extends StatelessWidget {
                   ),
                   Text(
                     'Noise Removal',
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
                   ),
 
 

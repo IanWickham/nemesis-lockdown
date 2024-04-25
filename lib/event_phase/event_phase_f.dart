@@ -40,20 +40,33 @@ class _EventPhaseFState extends State<EventPhaseF> {
                   ),
                   Text(
                     'Resolve Event Card',
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
                   ),
 
                   Image.asset(eventDeck.cards[0].picture, width: 350),
-
-
-
-
 
                   const SizedBox(height: 20.0),
 
 
                   ElevatedButton(
                       onPressed: () {
+                        setState(() {
+                          if(eventDeck.cards[0].name == 'Blue Screen'
+                              || eventDeck.cards[0].name == 'Coolant Leak'
+                              || eventDeck.cards[0].name == 'Kickstopper'
+                              || eventDeck.cards[0].name == 'Sanitary Network Failure'
+                              || eventDeck.cards[0].name == 'Short Circuit'
+                              || eventDeck.cards[0].name == 'That\'s Hot')
+                          {
+                            eventDeck.removeCard(0);
+                            eventDeck.reshuffleDiscard();
+                            eventDeck.shuffle();
+                          }
+                          else {
+                            eventDeck.discardCard(0);
+                          }
+                        });
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(

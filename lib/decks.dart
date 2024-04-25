@@ -76,7 +76,10 @@ class Deck {
 class TokenGrabBag extends Deck {
 
   List<Token> tokens = [];
-
+  List<Token> possibleLarvae = [];
+  List<Token> possibleCreeper = [];
+  List<Token> possibleAdult = [];
+  List<Token> possibleBreeder = [];
   TokenGrabBag(int numplayers) {
     deckName = 'Intruder Token Grab Bag';
 
@@ -131,30 +134,52 @@ class TokenGrabBag extends Deck {
   //generate the grab bag based on the number of players received from the player number screen
   void generateGrabBag(List<String> names, List<String> images, List<int?> blue, List<int?> red, int numplayers) {
 
-    //Sets can only have unique items
-    Set<int> tokenIndices = {};
-    //Add blank token
-    tokenIndices.add(0);
-    //Add larvae tokens
-    for(int i = 0; i<4; i++) {
-      tokenIndices.add(1+Random().nextInt(7));
+    for(int i = 1; i<8; i++) {
+      var temptoken = Token(names[i], images[i], blue[i], red[i]);
+      possibleLarvae.add(temptoken); //stores the possible Larvae
     }
-    //Add creeper token
-    tokenIndices.add(8+Random().nextInt(3));
-    //Add adult tokens based on the number of players
-    for(int i = 0; i<3+numplayers; i++) {
-      tokenIndices.add(11+Random().nextInt(12));
+    for(int i = 8; i<11; i++) {
+      var temptoken = Token(names[i], images[i], blue[i], red[i]);
+      possibleCreeper.add(temptoken); //stores the possible Creepers
     }
-    //add the queen token
-    tokenIndices.add(25);
+    for(int i = 11; i<23; i++) {
+      var temptoken = Token(names[i], images[i], blue[i], red[i]);
+      possibleAdult.add(temptoken); //stores the possible Adults
+    }
+    for(int i = 23; i<25; i++) {
+      var temptoken = Token(names[i], images[i], blue[i], red[i]);
+      possibleBreeder.add(temptoken); //stores the possible Breeders
+    }
 
-    for(int i = 0; i < tokenIndices.length; i++)
+    tokens.add(Token(names[0], images[0], blue[0], red[0])); //add blank
+    tokens.add(Token(names[25], images[25], blue[25], red[25])); //add queen
+
+    randomlyAddToken(possibleCreeper); //add creeper
+
+    for(int i=0; i<4; i++) //add larvae
       {
-      var token = Token(names[tokenIndices.elementAt(i)], images[tokenIndices.elementAt(i)], blue[tokenIndices.elementAt(i)], red[tokenIndices.elementAt(i)]);  //stores the list of names, images, and stats
-      tokens.add(token);
+        randomlyAddToken(possibleLarvae);
+      }
+
+    for(int i=0; i<3+numplayers; i++) //add adult tokens based on playercount
+    {
+      randomlyAddToken(possibleAdult);
     }
     shuffle();
   }
+
+  void randomlyAddToken(List<Token> source) //randomly adds a token and removes it from
+  {
+    if(source.isEmpty) {
+      return;
+    }
+    var rand = Random();
+    int index = rand.nextInt(source.length);
+    tokens.add(source[index]);
+    source.removeAt(index);
+  }
+
+
 }
 
 class CharacterDraft extends Deck {

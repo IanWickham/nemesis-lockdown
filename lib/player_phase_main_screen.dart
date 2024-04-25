@@ -20,7 +20,6 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
   bool spawnIntruder = false;
   bool queenOrCreeper = false;
   bool intruderRetreats = false;
-
   @override
   void initState() {
     super.initState();
@@ -153,23 +152,6 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
               Center( //display spawn intruder screen
                 child: intruderRetreats ? getIntruderRetreatsScreen() : null,
               ),
-              //Widget to test discarding and shuffling logic
-              /*
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(40.0),
-                    child: Text(
-                    '# Deck: ${intruderDeck.cards.length} # Discard: ${intruderDeck.discard.length}',
-                    style: GoogleFonts.novaSquare(
-                        color: Colors.greenAccent, fontSize: 25),
-                                    ),
-                  ),
-                ],
-              )*/
-
             ],
           )
       );
@@ -297,7 +279,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
                 const Padding(
                   padding: EdgeInsets.all(20.0),
                 ),
-                Image.asset(intruderDeck.cards[0].picture, width: 330),
+                Image.asset(intruderDeck.cards[0].picture, height: 495),
 
                 const Padding(
                   padding: EdgeInsets.all(10.0),
@@ -348,7 +330,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
         ),
 Align(
   alignment: const Alignment(3, -0.6),
-  child: queenOrCreeper ? Image.asset(intruderDeck.cards[1].picture, width: 330) : null,
+  child: queenOrCreeper ? Image.asset(intruderDeck.cards[1].picture, height: 495) : null,
 ),
       ]
     );
@@ -492,35 +474,47 @@ Align(
                   padding: EdgeInsets.all(30.0),
                 ),
                 Text(
-                  'Spawn ' + intruderGrabBag.tokens[0].name,
+                  'Spawn ${intruderGrabBag.tokens[0].name}',// ${intruderGrabBag.tokens.length}',
                   style: GoogleFonts.novaSquare(
                       color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(40.0),
                 ),
-
                 const Padding(
                   padding: EdgeInsets.all(10.0),
                 ),
+                (intruderGrabBag.tokens[0].name != 'Nothing') ?
                 ElevatedButton(
                     onPressed: () {
                       setState(() {
                         drawIntruderCard = true;
                         spawnIntruder = false;
-                      });
+                      }); //remove token behavior?
                     },
                     style: getButtonStyle(300, 60, Colors.blue[300]!),
                     child: const Text('Surprise Attack')
+                )
+                : const Padding(
+                  padding: EdgeInsets.all(5.0),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(15.0),
                 ),
                 ElevatedButton(
                     onPressed: () {
+                      if(intruderGrabBag.tokens[0].name == 'Nothing')
+                      {
+                        if(intruderGrabBag.tokens.length == 1)
+                        {
+                          intruderGrabBag.randomlyAddToken(intruderGrabBag.possibleAdult);
+                        }
+                      }
+                      else {intruderGrabBag.tokens.removeAt(0);}
                       setState(() {
                         spawnIntruder = false;
                       });
+
                     },
                     style: getButtonStyle(300, 60, Colors.red[300]!),
                     child: const Text('Finish')
