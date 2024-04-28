@@ -45,7 +45,7 @@ setState(() {
                   ),
                   Text(
                     'Intruder Bag\nDevelopment',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 34, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 35, fontWeight: FontWeight.bold),
                   ),
 
 
@@ -99,7 +99,7 @@ setState(() {
                               padding: EdgeInsets.all(15.0),
                             ),
                             Text(
-                              'Tap the bag\nto draw a token',
+                              'Tap the bag\nto draw',
                               textAlign: TextAlign.center,
                               style: GoogleFonts.novaSquare(
                                 color: Colors.white, fontSize: 30,),),

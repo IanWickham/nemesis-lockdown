@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nemesis_lockdown_companion/event_phase/event_phase_c.dart';
 import '../globals.dart';
 
 
@@ -28,23 +29,25 @@ class _EventPhaseBState extends State<EventPhaseB> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Event Phase',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
+                  const Padding(
+                    padding: EdgeInsets.all(40.0),
                   ),
                   Text(
                     'Move Time Track',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
+                    style: GoogleFonts.novaSquare(color: Colors.yellowAccent, fontSize: 40),
                   ),
-                  const SizedBox(height: 320.0),
+                  const SizedBox(height: 20.0),
 
 
                   Container(
+                    width: 360, // Adjust width as per your requirement
+                    height: 300, // Adjust height as per your requirement
+                    child: Image.asset('assets/misc assets/timeToken.png'),
 
                   ),
 
 
-                  const SizedBox(height: 70.0),
+                  const SizedBox(height: 10.0),
 
                   Container(
                     width: 350,
@@ -63,6 +66,11 @@ class _EventPhaseBState extends State<EventPhaseB> {
 
                   ElevatedButton(
                       onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EventPhaseC()),
+                        );
 
 
                       },

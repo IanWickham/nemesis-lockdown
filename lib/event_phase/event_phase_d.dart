@@ -46,7 +46,7 @@ class _EventPhaseDState extends State<EventPhaseD> {
                   'Draw an Intruder Attack Card for each intruder in a room with a player',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.electrolize(
-                    color: Colors.yellow,
+                    color: Colors.white,
                     fontSize: 30,
                   ),
                 ),

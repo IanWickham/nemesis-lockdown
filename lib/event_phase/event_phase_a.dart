@@ -29,10 +29,6 @@ class _EventPhaseAState extends State<EventPhaseA> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Event Phase',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
-                  ),
                    Text(
                     'Reveal CSS Pod',
                     style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
