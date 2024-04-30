@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nemesis_lockdown_companion/victory_check/victory_check_win.dart';
 import '../globals.dart';
 import 'victory_check_b.dart';
 import 'victory_check_lose.dart';
 
-class VictoryCheckA extends StatefulWidget {
-  const VictoryCheckA({super.key});
+class VictoryCheckF extends StatefulWidget {
+  const VictoryCheckF({super.key});
 
   @override
-  State<VictoryCheckA> createState() => _VictoryCheckAState();
+  State<VictoryCheckF> createState() => _VictoryCheckFState();
 }
 
-class _VictoryCheckAState extends State<VictoryCheckA> {
+class _VictoryCheckFState extends State<VictoryCheckF> {
   @override
   void initState() {
     super.initState();
@@ -37,7 +38,7 @@ class _VictoryCheckAState extends State<VictoryCheckA> {
 
 
                   Text(
-                    'Did any Characters Survive?',
+                    'Are any Characters Still alive?',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 32),
                   ),
@@ -49,7 +50,7 @@ class _VictoryCheckAState extends State<VictoryCheckA> {
                           context,
                           MaterialPageRoute(
                             //goes to next page of victory check if needed or back to main screen
-                              builder: (context) => const VictoryCheckB()),
+                              builder: (context) => const VictoryCheckWin()),
                         );
 
                       },

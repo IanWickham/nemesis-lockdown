@@ -5,14 +5,14 @@ import '../globals.dart';
 //sends user back to main screen
 import '../home_screen.dart';
 
-class VictoryCheckE extends StatefulWidget {
-  const VictoryCheckE({super.key});
+class VictoryCheckWin extends StatefulWidget {
+  const VictoryCheckWin({super.key});
 
   @override
-  State<VictoryCheckE> createState() => _VictoryCheckEState();
+  State<VictoryCheckWin> createState() => _VictoryCheckWinState();
 }
 
-class _VictoryCheckEState extends State<VictoryCheckE> {
+class _VictoryCheckWinState extends State<VictoryCheckWin> {
   @override
   void initState() {
     super.initState();
@@ -29,10 +29,16 @@ class _VictoryCheckEState extends State<VictoryCheckE> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Go back to Start?',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
+                    'Mission Success!',
+                    style: GoogleFonts.novaSquare(color: Colors.blue, fontSize: 45),
                   ),
-                  const SizedBox(height: 160.0),
+                  const SizedBox(height: 30.0),
+                  Text(
+                    textAlign: TextAlign.center,
+                    'The players whose Survivors have lived to see another day, win the game!',
+                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 28),
+                  ),
+                  const SizedBox(height: 60.0),
 
 
 
@@ -57,7 +63,7 @@ class _VictoryCheckEState extends State<VictoryCheckE> {
                           fixedSize: const Size(300, 60),
                           textStyle: const TextStyle(
                               fontSize: 30, color: Colors.black)),
-                      child: Text('Go to Start', style: GoogleFonts.novaSquare())
+                      child: Text('End Game', style: GoogleFonts.novaSquare())
                   ),
                 ]
             ),

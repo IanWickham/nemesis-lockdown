@@ -28,7 +28,7 @@ class _VictoryCheckCState extends State<VictoryCheckC> {
                 children: [
                   Text(
                     'Contamination Check',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 36),
                   ),
 
                   const SizedBox(height: 60.0),

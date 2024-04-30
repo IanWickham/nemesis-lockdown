@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nemesis_lockdown_companion/victory_check/victory_check_f.dart';
 import '../globals.dart';
-import 'victory_check_e.dart';
+import 'victory_check_lose.dart';
 
 class VictoryCheckD extends StatefulWidget {
   const VictoryCheckD({super.key});
@@ -68,7 +69,7 @@ class _VictoryCheckDState extends State<VictoryCheckD> {
                           context,
                           MaterialPageRoute(
                             //goes to next page of victory check if needed or back to main screen
-                              builder: (context) => const VictoryCheckE()),
+                              builder: (context) => const VictoryCheckF()),
                         );
 
                       },
