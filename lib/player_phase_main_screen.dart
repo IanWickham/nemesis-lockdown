@@ -223,10 +223,10 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
         height: 350,
         width: 300,
         decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.8),
+        color: Colors.black.withOpacity(1.0),
         border: Border.all(
           width: 2,
-          color: Colors.yellowAccent,
+          color: Colors.red,
         ),
         borderRadius: BorderRadius.circular(20),
       ),
@@ -237,7 +237,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
           Text(
             'Resolve Lock-Down',
             style: GoogleFonts.novaSquare(
-                color: Colors.red[600], fontSize: 30, fontWeight: FontWeight.bold),
+                color: Colors.red[600], fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const Padding(
             padding: EdgeInsets.all(50.0),
@@ -248,7 +248,7 @@ class _PlayerPhaseMainScreenState extends State<PlayerPhaseMainScreen>
                   computerActionsDeck.shuffle();
                 });
               },
-              style: getButtonStyle(200, 60, Colors.red[300]!),
+              style: getButtonStyle(200, 60, Colors.blue[300]!),
               child: const Text('Resolved')
           ),
         ],

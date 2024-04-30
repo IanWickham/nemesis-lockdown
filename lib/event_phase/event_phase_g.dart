@@ -70,7 +70,7 @@ setState(() {
                           });
                         },
                         child: Ink.image(
-                          image: const AssetImage("assets/intruder tokens/intruderbag.png"),
+                          image: const AssetImage('assets/misc assets/intruderbag.png'),
                           height: 300,
                           width: 300,
                           fit: BoxFit.contain,
