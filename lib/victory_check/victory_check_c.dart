@@ -21,7 +21,6 @@ class _VictoryCheckCState extends State<VictoryCheckC> {
       body: Stack(
         children: <Widget>[
           getBackground(),
-          getTurnCounter(context),
 
           Center(
             child: Column(
@@ -32,7 +31,7 @@ class _VictoryCheckCState extends State<VictoryCheckC> {
                     style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
                   ),
 
-                  const SizedBox(height: 160.0),
+                  const SizedBox(height: 60.0),
 
                   Container(
                     width: 350,

@@ -32,7 +32,7 @@ class _EventPhaseDState extends State<EventPhaseD> {
               Text(
                 'Intruder Attack',
                 style: GoogleFonts.novaSquare(
-                    color: Colors.yellow, fontSize: 40),
+                    color: Colors.yellow[300], fontSize: 40),
               ),
               Container(
                 width: 280, // Adjust width as per your requirement
@@ -46,7 +46,7 @@ class _EventPhaseDState extends State<EventPhaseD> {
                   'Draw an Intruder Attack Card for each intruder in a room with a player',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.electrolize(
-                    color: Colors.white,
+                    color: Colors.yellow[300],
                     fontSize: 30,
                   ),
                 ),

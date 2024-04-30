@@ -23,7 +23,6 @@ class _VictoryCheckEState extends State<VictoryCheckE> {
       body: Stack(
         children: <Widget>[
           getBackground(),
-          getTurnCounter(context),
 
           Center(
             child: Column(

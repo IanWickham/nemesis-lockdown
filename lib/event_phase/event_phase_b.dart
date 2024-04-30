@@ -34,7 +34,7 @@ class _EventPhaseBState extends State<EventPhaseB> {
                   ),
                   Text(
                     'Move Time Track',
-                    style: GoogleFonts.novaSquare(color: Colors.yellowAccent, fontSize: 40),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 40),
                   ),
                   const SizedBox(height: 20.0),
 
@@ -55,7 +55,7 @@ class _EventPhaseBState extends State<EventPhaseB> {
                       'Advance the time track, and resolve power thresholds',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
-                        color: Colors.white,
+                        color: Colors.yellow[300],
                         fontSize: 30,
                       ),
                     ),

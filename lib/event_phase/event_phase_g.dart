@@ -45,7 +45,7 @@ setState(() {
                   ),
                   Text(
                     'Intruder Bag\nDevelopment',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 35, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 35, fontWeight: FontWeight.bold),
                   ),
 
 
@@ -193,7 +193,7 @@ setState(() {
       intrudertext,
       textAlign: TextAlign.center,
       style: GoogleFonts.novaSquare(
-        color: Colors.yellow, fontSize: 26,),);
+        color: Colors.yellow[300], fontSize: 26,),);
   }
 
   Widget getQueenBehaviorDialog() {

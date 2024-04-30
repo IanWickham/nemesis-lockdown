@@ -22,21 +22,22 @@ class _VictoryCheckAState extends State<VictoryCheckA> {
       body: Stack(
         children: <Widget>[
           getBackground(),
-          getTurnCounter(context),
 
           Center(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Objective Check',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
+                    'Victory Check',
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 38),
                   ),
+                  const SizedBox(height: 120.0),
                   Text(
                     'Did any Characters Survive?',
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 40),
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 32),
                   ),
-                  const SizedBox(height: 160.0),
+                  const SizedBox(height: 80.0),
 
                   ElevatedButton(
                       onPressed: () {
@@ -50,7 +51,7 @@ class _VictoryCheckAState extends State<VictoryCheckA> {
                       },
                       style: ElevatedButton.styleFrom(
                           side: const BorderSide(width: 1, color: Colors.black),
-                          backgroundColor: Colors.red[300],
+                          backgroundColor: Colors.blue[300],
                           foregroundColor: Colors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -60,6 +61,9 @@ class _VictoryCheckAState extends State<VictoryCheckA> {
                               fontSize: 30, color: Colors.black)),
                       child: Text('Yes', style: GoogleFonts.novaSquare())
                   ),
+
+                  const SizedBox(height: 30.0),
+
                   ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -82,6 +86,7 @@ class _VictoryCheckAState extends State<VictoryCheckA> {
                               fontSize: 30, color: Colors.black)),
                       child: Text('No', style: GoogleFonts.novaSquare())
                   ),
+                  const SizedBox(height: 100.0),
                 ]
             ),
           ),

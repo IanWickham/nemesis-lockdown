@@ -129,7 +129,8 @@ AlertDialog getMenuDialog(BuildContext context) {
                 );
 
               },
-              style: getButtonStyle(200, 60, Colors.yellowAccent, 23),
+
+              style: getButtonStyle(200, 60,  Colors.yellow[300]!, 23),
               child: const Text('Victory Check')
           ),
           const Padding(
@@ -192,7 +193,11 @@ AlertDialog getVictoryCheckConfirmation(BuildContext context) {
             children: [
               ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                      Navigator.push(context,
+                      MaterialPageRoute(
+                      builder: (context) => const VictoryCheckA()),
+                      );
+
                   },
                   style: getButtonStyle(130, 60, Colors.blue[300]!, 23),
                   child: const Text('Yes')
@@ -201,13 +206,9 @@ AlertDialog getVictoryCheckConfirmation(BuildContext context) {
                 padding: EdgeInsets.all(10.0),
               ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                        builder: (context) => const VictoryCheckA()),
-                    );
-                  },
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                   style: getButtonStyle(130, 60, Colors.red[300]!, 23),
                   child: const Text('No')
               ),

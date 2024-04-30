@@ -34,7 +34,7 @@ class _EventPhaseEState extends State<EventPhaseE> {
                   ),
                   Text(
                     'Fire Damage',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 40),
                   ),
 
 
@@ -54,7 +54,7 @@ class _EventPhaseEState extends State<EventPhaseE> {
                       'Each room with a fire marker, deal 1 injury to each intruder and egg',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
-                        color: Colors.white,
+                        color: Colors.yellow[300],
                         fontSize: 30,
                       ),
                     ),

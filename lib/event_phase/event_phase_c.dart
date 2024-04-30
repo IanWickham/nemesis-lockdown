@@ -24,7 +24,7 @@ class EventPhaseC extends StatelessWidget {
                   ),
                   Text(
                     'Noise Removal',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 40),
                   ),
 
 
@@ -45,7 +45,7 @@ class EventPhaseC extends StatelessWidget {
                       'For sections with power: Remove noise from all corridors that aren’t adjacent to characters',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
-                        color: Colors.white,
+                        color: Colors.yellow[300],
                         fontSize: 30,
                       ),
                     ),

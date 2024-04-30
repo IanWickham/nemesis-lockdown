@@ -40,7 +40,7 @@ class _EventPhaseFState extends State<EventPhaseF> {
                   ),
                   Text(
                     'Resolve Event Card',
-                    style: GoogleFonts.novaSquare(color: Colors.yellowAccent, fontSize: 40),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 40),
                   ),
 
                   Image.asset(eventDeck.cards[0].picture, width: 350),
