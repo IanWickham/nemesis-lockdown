@@ -54,7 +54,7 @@ Widget getTurnCounter(BuildContext context) {
                         color: (currentTurn == i) ? Colors.blue[300] : Colors.grey,
                         background: Paint()
                           ..color = (currentTurn == i)
-                              ? Colors.blue
+                              ? Colors.transparent
                               : Colors.transparent
                           ..style = PaintingStyle.stroke
                           ..strokeWidth = 2.0
