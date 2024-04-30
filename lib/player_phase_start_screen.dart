@@ -38,22 +38,22 @@ class _PlayerPhaseStartScreenState extends State<PlayerPhaseStartScreen> {
                       children: [
                         Text(
                           '• Draw up to 5',
-                          style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 32),
+                          style: GoogleFonts.novaSquare(color: Colors.blue[300], fontSize: 32),
                         ),
                         Text(
                           '  cards in hand',
-                          style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 32),
+                          style: GoogleFonts.novaSquare(color: Colors.blue[300], fontSize: 32),
                         ),
                         const Padding(
                           padding: EdgeInsets.all(30.0),
                         ),
                         Text(
                           '• Pass first player',
-                          style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 32),
+                          style: GoogleFonts.novaSquare(color: Colors.blue[300], fontSize: 32),
                         ),
                         Text(
                           '  token',
-                          style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 32),
+                          style: GoogleFonts.novaSquare(color: Colors.blue[300], fontSize: 32),
                         ),
                       ]
                   ),

@@ -36,11 +36,11 @@ class _VictoryCheckCState extends State<VictoryCheckC> {
                   Container(
                     width: 350,
                     child: Text(
-                      'Each living character checks their contamination cards',
+                      '• Each living character checks their contamination cards',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
-                        fontSize: 30,
+                        fontSize: 26,
                       ),
                     ),
                   ),
@@ -48,11 +48,11 @@ class _VictoryCheckCState extends State<VictoryCheckC> {
                   Container(
                     width: 350,
                     child: Text(
-                      'Scan all cards in their action deck if at least 1 reads infected follow the next step.',
+                      '• Scan all cards in their action deck if at least 1 reads infected follow the next step.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
-                        fontSize: 30,
+                        fontSize: 26,
                       ),
                     ),
                   ),
@@ -60,17 +60,17 @@ class _VictoryCheckCState extends State<VictoryCheckC> {
                   Container(
                     width: 350,
                     child: Text(
-                      '(If player already has larva on their character board, ignore this step and move to the next one.',
+                      '(If player already has larva on their character board, ignore this step and move to the next one.)',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
-                        fontSize: 30,
+                        fontSize: 26,
                       ),
                     ),
                   ),
 
 
-                  const SizedBox(height: 80.0),
+                  const SizedBox(height: 50.0),
 
                   ElevatedButton(
                       onPressed: () {

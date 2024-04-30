@@ -27,6 +27,8 @@ class EventPhaseC extends StatelessWidget {
                     style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 40),
                   ),
 
+                  const SizedBox(height: 20.0),
+
 
 
                   Container(
@@ -37,7 +39,7 @@ class EventPhaseC extends StatelessWidget {
                   ),
 
 
-                  //const SizedBox(height: 5.0),
+                  const SizedBox(height: 20.0),
 
                   Container(
                     width: 350,

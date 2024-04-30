@@ -31,26 +31,15 @@ class _EventPhaseAState extends State<EventPhaseA> {
                 children: [
                    Text(
                     'Reveal CSS Pod',
-                    style: GoogleFonts.novaSquare(color: Colors.yellow, fontSize: 40),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 40),
                   ),
-                  const SizedBox(height: 160.0),
+                  const SizedBox(height: 20.0),
 
 
                   Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellow,
-                    ),
-                    child: Center(
-                        child: Text(
-                        'CSS',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 50),
-                    // Child widget to center text under the graphic
-                  ),
-                    ),
+                    width: 330, // Adjust width as per your requirement
+                    height: 250, // Adjust height as per your requirement
+                    child: Image.asset('assets/misc assets/css.png'),
                   ),
 
 
@@ -62,13 +51,13 @@ class _EventPhaseAState extends State<EventPhaseA> {
                       'Reveal current CSS Pod under the time track',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
-                        color: Colors.white,
+                        color: Colors.yellow[300],
                         fontSize: 30,
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 80.0),
+                  const SizedBox(height: 40.0),
 
 
                   ElevatedButton(

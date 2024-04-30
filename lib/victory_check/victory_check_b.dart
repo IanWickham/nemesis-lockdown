@@ -29,7 +29,7 @@ class _VictoryCheckBState extends State<VictoryCheckB> {
                 children: [
                   Text(
                     'Contingency Check',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 38),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 38),
                   ),
 
                   const SizedBox(height: 30.0),

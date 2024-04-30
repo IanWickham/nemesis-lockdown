@@ -30,38 +30,40 @@ class _VictoryCheckDState extends State<VictoryCheckD> {
                 children: [
                   Text(
                     'Contamination Check',
-                    style: GoogleFonts.novaSquare(color: Colors.red, fontSize: 30),
+                    style: GoogleFonts.novaSquare(color: Colors.yellow[300], fontSize: 36),
                   ),
-                  const SizedBox(height: 160.0),
+                  const SizedBox(height: 50.0),
 
 
 
                   Container(
                     width: 350,
                     child: Text(
-                      'Infected Players will now shuffle all of their cards to create a new action deck.',
+                      '• Infected Players will now shuffle all of their cards to create a new action deck.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
-                        fontSize: 30,
+                        fontSize: 28,
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 80.0),
+                  const SizedBox(height: 60.0),
 
                   Container(
                     width: 350,
                     child: Text(
-                      'Draw the top 4 cards, if at least 1 card is contaminated then the character dies.',
+                      '• Draw the top 4 cards, if at least 1 card is contaminated then the character dies.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.novaSquare(
                         color: Colors.white,
-                        fontSize: 30,
+                        fontSize: 28,
                       ),
                     ),
                   ),
 
+
+                  const SizedBox(height: 50.0),
 
                   ElevatedButton(
                       onPressed: () {

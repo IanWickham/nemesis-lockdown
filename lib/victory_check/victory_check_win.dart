@@ -35,8 +35,8 @@ class _VictoryCheckWinState extends State<VictoryCheckWin> {
                   const SizedBox(height: 30.0),
                   Text(
                     textAlign: TextAlign.center,
-                    'The players whose Survivors have lived to see another day, win the game!',
-                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 28),
+                    'The players whose Survivors have lived to see another day, they win the game!',
+                    style: GoogleFonts.novaSquare(color: Colors.white, fontSize: 26),
                   ),
                   const SizedBox(height: 60.0),
 
