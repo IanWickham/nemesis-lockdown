@@ -102,7 +102,7 @@ setState(() {
                               'Tap the bag\nto draw',
                               textAlign: TextAlign.center,
                               style: GoogleFonts.novaSquare(
-                                color: Colors.white, fontSize: 30,),),
+                                color: Colors.yellow[300], fontSize: 30,),),
                           ],
                         ),
                   ),
