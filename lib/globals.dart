@@ -2,10 +2,10 @@ library my_prj.globals;
 import 'package:flutter/material.dart';
 import 'decks.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nemesis_lockdown_companion/victory_check/victory_check_a.dart';
+import 'victory_check/victory_check_a.dart';
 
 int playerCount = 0; //initialize to 0, playerCount gets defined in PlayerNumberScreen
-int currentTurn = 15; //initialize to up to 15, starting at 1,gets defines in EventPhaseMainScreen
+int currentTurn = 1; //initialize to 15
 int track=0;
 var intruderDeck = NightStalkerAttack();
 var computerActionsDeck = ComputerActions();
@@ -54,7 +54,7 @@ Widget getTurnCounter(BuildContext context) {
                         color: (currentTurn == i) ? Colors.blue[300] : Colors.grey,
                         background: Paint()
                           ..color = (currentTurn == i)
-                              ? Colors.transparent
+                              ? Colors.blue
                               : Colors.transparent
                           ..style = PaintingStyle.stroke
                           ..strokeWidth = 2.0
@@ -105,12 +105,12 @@ Widget getTurnCounter(BuildContext context) {
 AlertDialog getMenuDialog(BuildContext context) {
   return AlertDialog(
     title: Text("Menu", style: GoogleFonts.novaSquare(
-        color: Colors.blue[200],
+        color: Colors.red[200],
         fontSize: 24,
         fontWeight: FontWeight.bold)),
-    backgroundColor: Colors.black.withOpacity(0.8),
+    backgroundColor: Colors.black.withOpacity(0.6),
     shape: RoundedRectangleBorder(
-      side: const BorderSide(color: Colors.blue, width: 2),
+      side: const BorderSide(color: Colors.red, width: 2),
       borderRadius: BorderRadius.circular(20),
     ),
     content: SizedBox(
@@ -129,8 +129,7 @@ AlertDialog getMenuDialog(BuildContext context) {
                 );
 
               },
-
-              style: getButtonStyle(200, 60,  Colors.yellow[300]!, 23),
+              style: getButtonStyle(200, 60, Colors.yellowAccent, 23),
               child: const Text('Victory Check')
           ),
           const Padding(
@@ -140,7 +139,7 @@ AlertDialog getMenuDialog(BuildContext context) {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              style: getButtonStyle(140, 60, Colors.red[300]!, 23),
+              style: getButtonStyle(140, 60, Colors.blue[300]!, 23),
               child: const Text('Close')
           ),
         ],
@@ -155,7 +154,7 @@ AlertDialog getVictoryCheckConfirmation(BuildContext context) {
         color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold)),
-    backgroundColor: Colors.black.withOpacity(0.8),
+    backgroundColor: Colors.black.withOpacity(0.6),
     shape: RoundedRectangleBorder(
       side: const BorderSide(color: Colors.red, width: 2),
       borderRadius: BorderRadius.circular(20),
@@ -168,9 +167,21 @@ AlertDialog getVictoryCheckConfirmation(BuildContext context) {
           const Padding(
             padding: EdgeInsets.all(10.0),
           ),
-          Text("Performing the Victory Check will reset the contents of all simulated game elements and end the game.", style: GoogleFonts.novaSquare(
-              color: Colors.white,
-              fontSize: 22, )),
+          Text("Performing the Victory", style: GoogleFonts.novaSquare(
+              color: Colors.yellow,
+              fontSize: 22,)),
+          Text("Check will reset the", style: GoogleFonts.novaSquare(
+            color: Colors.yellow,
+            fontSize: 22,)),
+          Text("contents of all simulated", style: GoogleFonts.novaSquare(
+            color: Colors.yellow,
+            fontSize: 22,)),
+          Text("game elements and end", style: GoogleFonts.novaSquare(
+            color: Colors.yellow,
+            fontSize: 22,)),
+          Text("the game.", style: GoogleFonts.novaSquare(
+            color: Colors.yellow,
+            fontSize: 22,)),
           const Padding(
             padding: EdgeInsets.all(20.0),
           ),
@@ -193,23 +204,23 @@ AlertDialog getVictoryCheckConfirmation(BuildContext context) {
             children: [
               ElevatedButton(
                   onPressed: () {
-                      Navigator.push(context,
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
-                      builder: (context) => const VictoryCheckA()),
-                      );
-
+                          builder: (context) => const VictoryCheckA()),
+                    );
                   },
-                  style: getButtonStyle(130, 60, Colors.blue[300]!, 23),
+                  style: getButtonStyle(130, 60, Colors.yellowAccent, 23),
                   child: const Text('Yes')
               ),
               const Padding(
                 padding: EdgeInsets.all(10.0),
               ),
               ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  style: getButtonStyle(130, 60, Colors.red[300]!, 23),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: getButtonStyle(130, 60, Colors.blue[300]!, 23),
                   child: const Text('No')
               ),
             ],

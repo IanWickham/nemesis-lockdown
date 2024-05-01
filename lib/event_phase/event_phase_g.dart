@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nemesis_lockdown_companion/player_phase_start_screen.dart';
+import 'package:nemesis_lockdown_companion/victory_check/victory_check_a.dart';
 import '../globals.dart';
 import 'event_phase_f.dart';
 
@@ -114,13 +115,24 @@ setState(() {
                       onPressed: () {
                         if(draw) {
                           track = 0;
-                          currentTurn--;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const PlayerPhaseStartScreen()),
-                          );}
-                        else {Null;}
+                          if(currentTurn == 1)
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const VictoryCheckA()),
+                              );
+                            }
+                          else {
+                            currentTurn--;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const PlayerPhaseStartScreen()),
+                            );
+                          }
+                          }
+
                       },
                       style: getButtonStyle(200, 60, draw ? Colors.red[300]! : Colors.grey[700]!),
                       child: Text('Next', style: GoogleFonts.novaSquare())
@@ -158,7 +170,7 @@ setState(() {
         {
           intrudertext = 'This token is returned to the bag. There are no more adult tokens to add.';
         } else {
-        intrudertext = 'This token is returned to the bag, and an adult token is added.';
+        intrudertext = 'This token is returned to the bag, and an adult token is added to the bag.';
         intruderGrabBag.randomlyAddToken(intruderGrabBag.possibleAdult);
       }
 
@@ -170,7 +182,7 @@ setState(() {
         'This token is removed. There are no more adult tokens to add.';
       }
     else {
-        intrudertext = 'This token is removed,\nand an adult token is added.';
+        intrudertext = 'This token is removed,\nand an adult token is added to the bag.';
         intruderGrabBag.randomlyAddToken(intruderGrabBag.possibleAdult);
       }
     }
